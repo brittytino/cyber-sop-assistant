@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2025-11-28T17:26:27.833Z",
-  "commitIndex": 5,
-  "commitDate": "2024-08-07T14:04:04.000Z",
-  "message": "feat: add recommended next steps from SOP"
+  "generatedAt": "2025-11-28T17:26:27.929Z",
+  "commitIndex": 6,
+  "commitDate": "2024-08-08T13:59:17.000Z",
+  "message": "refactor: split report parser into modules"
 }
