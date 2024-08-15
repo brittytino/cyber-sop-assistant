@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2025-11-28T17:26:28.213Z",
-  "commitIndex": 9,
-  "commitDate": "2024-08-14T22:53:54.000Z",
-  "message": "refactor: centralize error handling"
+  "generatedAt": "2025-11-28T17:26:28.308Z",
+  "commitIndex": 10,
+  "commitDate": "2024-08-15T18:34:06.000Z",
+  "message": "test: add integration test for report flow"
 }
