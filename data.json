@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2025-11-28T17:26:29.508Z",
-  "commitIndex": 22,
-  "commitDate": "2024-09-03T06:51:27.000Z",
-  "message": "fix: trim whitespace in text fields before NLP"
+  "generatedAt": "2025-11-28T17:26:29.627Z",
+  "commitIndex": 23,
+  "commitDate": "2024-09-07T04:11:56.000Z",
+  "message": "refactor: move constants to config module"
 }
