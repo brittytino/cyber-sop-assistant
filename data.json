@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2025-11-28T17:26:29.844Z",
-  "commitIndex": 25,
-  "commitDate": "2024-09-09T12:08:48.000Z",
-  "message": "refactor: split report parser into modules"
+  "generatedAt": "2025-11-28T17:26:29.946Z",
+  "commitIndex": 26,
+  "commitDate": "2024-09-11T05:36:46.000Z",
+  "message": "refactor: migrate to typed API responses"
 }
