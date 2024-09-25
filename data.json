@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2025-11-28T17:26:31.061Z",
-  "commitIndex": 38,
-  "commitDate": "2024-09-24T17:42:26.000Z",
-  "message": "test: add mocks for external SOP API"
+  "generatedAt": "2025-11-28T17:26:31.152Z",
+  "commitIndex": 39,
+  "commitDate": "2024-09-25T10:31:27.000Z",
+  "message": "refactor: centralize error handling"
 }
