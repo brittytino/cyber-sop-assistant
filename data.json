@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2025-11-28T17:26:31.254Z",
-  "commitIndex": 40,
-  "commitDate": "2024-09-27T10:42:14.000Z",
-  "message": "ux: clarify error messages during validation"
+  "generatedAt": "2025-11-28T17:26:31.360Z",
+  "commitIndex": 41,
+  "commitDate": "2024-09-27T19:29:19.000Z",
+  "message": "ux: move primary CTA above fold"
 }
