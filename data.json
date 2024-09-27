@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2025-11-28T17:26:31.152Z",
-  "commitIndex": 39,
-  "commitDate": "2024-09-25T10:31:27.000Z",
-  "message": "refactor: centralize error handling"
+  "generatedAt": "2025-11-28T17:26:31.254Z",
+  "commitIndex": 40,
+  "commitDate": "2024-09-27T10:42:14.000Z",
+  "message": "ux: clarify error messages during validation"
 }
