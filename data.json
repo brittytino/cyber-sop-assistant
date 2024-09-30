@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2025-11-28T17:26:31.360Z",
-  "commitIndex": 41,
-  "commitDate": "2024-09-27T19:29:19.000Z",
-  "message": "ux: move primary CTA above fold"
+  "generatedAt": "2025-11-28T17:26:31.474Z",
+  "commitIndex": 42,
+  "commitDate": "2024-09-30T12:10:54.000Z",
+  "message": "test: add integration test for report flow"
 }
