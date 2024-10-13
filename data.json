@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2025-11-28T17:26:31.919Z",
-  "commitIndex": 46,
-  "commitDate": "2024-10-07T23:28:28.000Z",
-  "message": "ui: add tooltip for sensitive fields"
+  "generatedAt": "2025-11-28T17:26:32.003Z",
+  "commitIndex": 47,
+  "commitDate": "2024-10-13T10:22:41.000Z",
+  "message": "feat: add confidence score to suggestions"
 }
