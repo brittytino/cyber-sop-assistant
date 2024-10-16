@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2025-11-28T17:26:32.003Z",
-  "commitIndex": 47,
-  "commitDate": "2024-10-13T10:22:41.000Z",
-  "message": "feat: add confidence score to suggestions"
+  "generatedAt": "2025-11-28T17:26:32.102Z",
+  "commitIndex": 48,
+  "commitDate": "2024-10-16T11:36:26.000Z",
+  "message": "ui: responsive tweaks for tablet view"
 }
