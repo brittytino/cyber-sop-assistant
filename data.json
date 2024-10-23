@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2025-11-28T17:26:32.102Z",
-  "commitIndex": 48,
-  "commitDate": "2024-10-16T11:36:26.000Z",
-  "message": "ui: responsive tweaks for tablet view"
+  "generatedAt": "2025-11-28T17:26:32.206Z",
+  "commitIndex": 49,
+  "commitDate": "2024-10-23T16:55:23.000Z",
+  "message": "feat: add email confirmation step"
 }
