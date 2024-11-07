@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2025-11-28T17:26:32.560Z",
-  "commitIndex": 53,
-  "commitDate": "2024-11-03T13:33:16.000Z",
-  "message": "feat: add form autosave to localStorage"
+  "generatedAt": "2025-11-28T17:26:32.647Z",
+  "commitIndex": 54,
+  "commitDate": "2024-11-07T09:57:45.000Z",
+  "message": "feat: add automatic SOP match confidence threshold"
 }
