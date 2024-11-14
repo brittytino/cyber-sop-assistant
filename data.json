@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2025-11-28T17:26:32.931Z",
-  "commitIndex": 57,
-  "commitDate": "2024-11-11T15:33:56.000Z",
-  "message": "fix: remove debug logs from production build"
+  "generatedAt": "2025-11-28T17:26:33.031Z",
+  "commitIndex": 58,
+  "commitDate": "2024-11-14T16:35:31.000Z",
+  "message": "ux: clarify error messages during validation"
 }
