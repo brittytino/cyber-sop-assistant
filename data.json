@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2025-11-28T17:26:33.141Z",
-  "commitIndex": 59,
-  "commitDate": "2024-11-15T07:43:19.000Z",
-  "message": "security: validate file sizes before upload"
+  "generatedAt": "2025-11-28T17:26:33.238Z",
+  "commitIndex": 60,
+  "commitDate": "2024-11-17T12:42:34.000Z",
+  "message": "fix: remove race condition in draft saving"
 }
