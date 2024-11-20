@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2025-11-28T17:26:33.238Z",
-  "commitIndex": 60,
-  "commitDate": "2024-11-17T12:42:34.000Z",
-  "message": "fix: remove race condition in draft saving"
+  "generatedAt": "2025-11-28T17:26:33.327Z",
+  "commitIndex": 61,
+  "commitDate": "2024-11-20T05:39:42.000Z",
+  "message": "refactor: improve naming of parser utilities"
 }
