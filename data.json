@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2025-11-28T17:26:34.923Z",
-  "commitIndex": 77,
-  "commitDate": "2024-12-21T12:29:26.000Z",
-  "message": "chore: update dependency constraints"
+  "generatedAt": "2025-11-28T17:26:35.019Z",
+  "commitIndex": 78,
+  "commitDate": "2024-12-22T07:59:19.000Z",
+  "message": "security: sanitize user-submitted attachments"
 }
