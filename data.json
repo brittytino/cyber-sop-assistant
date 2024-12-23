@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2025-11-28T17:26:35.019Z",
-  "commitIndex": 78,
-  "commitDate": "2024-12-22T07:59:19.000Z",
-  "message": "security: sanitize user-submitted attachments"
+  "generatedAt": "2025-11-28T17:26:35.123Z",
+  "commitIndex": 79,
+  "commitDate": "2024-12-23T05:22:38.000Z",
+  "message": "chore: bump node version in CI"
 }
