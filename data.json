@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2025-11-28T17:26:35.123Z",
-  "commitIndex": 79,
-  "commitDate": "2024-12-23T05:22:38.000Z",
-  "message": "chore: bump node version in CI"
+  "generatedAt": "2025-11-28T17:26:35.224Z",
+  "commitIndex": 80,
+  "commitDate": "2024-12-25T07:51:07.000Z",
+  "message": "feat: add Marathi translations"
 }
