@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2025-11-28T17:26:35.504Z",
-  "commitIndex": 83,
-  "commitDate": "2024-12-29T13:28:37.000Z",
-  "message": "security: limit rate of suspicious requests"
+  "generatedAt": "2025-11-28T17:26:35.589Z",
+  "commitIndex": 84,
+  "commitDate": "2024-12-30T13:49:10.000Z",
+  "message": "ui: responsive tweaks for tablet view"
 }
