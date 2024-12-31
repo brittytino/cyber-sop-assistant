@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2025-11-28T17:26:35.684Z",
-  "commitIndex": 85,
-  "commitDate": "2024-12-31T12:52:15.000Z",
-  "message": "test: add mocks for external SOP API"
+  "generatedAt": "2025-11-28T17:26:35.788Z",
+  "commitIndex": 86,
+  "commitDate": "2024-12-31T19:34:49.000Z",
+  "message": "ux: improve keyboard navigation on forms"
 }
