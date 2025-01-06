@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2025-11-28T17:26:36.198Z",
-  "commitIndex": 90,
-  "commitDate": "2025-01-05T08:40:35.000Z",
-  "message": "ci: run security audit on dependencies"
+  "generatedAt": "2025-11-28T17:26:36.288Z",
+  "commitIndex": 91,
+  "commitDate": "2025-01-06T07:41:19.000Z",
+  "message": "refactor: improve naming of parser utilities"
 }
