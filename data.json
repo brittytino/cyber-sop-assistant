@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2025-11-28T17:26:36.383Z",
-  "commitIndex": 92,
-  "commitDate": "2025-01-07T09:12:41.000Z",
-  "message": "ui: add skeleton loaders to list pages"
+  "generatedAt": "2025-11-28T17:26:36.481Z",
+  "commitIndex": 93,
+  "commitDate": "2025-01-11T03:58:35.000Z",
+  "message": "chore: update dependency constraints"
 }
