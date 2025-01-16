@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2025-11-28T17:26:36.481Z",
-  "commitIndex": 93,
-  "commitDate": "2025-01-11T03:58:35.000Z",
-  "message": "chore: update dependency constraints"
+  "generatedAt": "2025-11-28T17:26:36.587Z",
+  "commitIndex": 94,
+  "commitDate": "2025-01-16T11:41:44.000Z",
+  "message": "feat: add Hindi localization for report form"
 }
