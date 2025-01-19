@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2025-11-28T17:26:36.587Z",
-  "commitIndex": 94,
-  "commitDate": "2025-01-16T11:41:44.000Z",
-  "message": "feat: add Hindi localization for report form"
+  "generatedAt": "2025-11-28T17:26:36.684Z",
+  "commitIndex": 95,
+  "commitDate": "2025-01-19T16:07:26.000Z",
+  "message": "refactor: consolidate form validation rules"
 }
