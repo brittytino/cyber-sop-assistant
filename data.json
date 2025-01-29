@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2025-11-28T17:26:37.186Z",
-  "commitIndex": 100,
-  "commitDate": "2025-01-28T17:28:59.000Z",
-  "message": "test: add mocks for external SOP API"
+  "generatedAt": "2025-11-28T17:26:37.279Z",
+  "commitIndex": 101,
+  "commitDate": "2025-01-29T04:25:03.000Z",
+  "message": "ui: add skeleton loaders to list pages"
 }
