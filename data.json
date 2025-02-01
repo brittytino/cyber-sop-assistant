@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2025-11-28T17:26:37.371Z",
-  "commitIndex": 102,
-  "commitDate": "2025-01-30T19:09:34.000Z",
-  "message": "test: add unit tests for NLP entity extraction"
+  "generatedAt": "2025-11-28T17:26:37.448Z",
+  "commitIndex": 103,
+  "commitDate": "2025-02-01T09:10:12.000Z",
+  "message": "fix: resolve NLU fallback triggering on short queries"
 }
