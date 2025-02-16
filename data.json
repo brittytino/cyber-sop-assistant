@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2025-11-28T17:26:37.886Z",
-  "commitIndex": 108,
-  "commitDate": "2025-02-14T14:08:07.000Z",
-  "message": "feat: add automatic SOP match confidence threshold"
+  "generatedAt": "2025-11-28T17:26:37.969Z",
+  "commitIndex": 109,
+  "commitDate": "2025-02-16T22:23:49.000Z",
+  "message": "fix: ensure timezone normalization for reports"
 }
