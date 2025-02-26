@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2025-11-28T17:26:38.328Z",
-  "commitIndex": 113,
-  "commitDate": "2025-02-24T17:17:40.000Z",
-  "message": "feat: add 'save draft' API for reports"
+  "generatedAt": "2025-11-28T17:26:38.417Z",
+  "commitIndex": 114,
+  "commitDate": "2025-02-26T11:48:59.000Z",
+  "message": "ui: add progress indicator to file uploads"
 }
