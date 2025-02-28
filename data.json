@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2025-11-28T17:26:38.417Z",
-  "commitIndex": 114,
-  "commitDate": "2025-02-26T11:48:59.000Z",
-  "message": "ui: add progress indicator to file uploads"
+  "generatedAt": "2025-11-28T17:26:38.502Z",
+  "commitIndex": 115,
+  "commitDate": "2025-02-28T12:39:39.000Z",
+  "message": "docs: add developer notes for model updates"
 }
