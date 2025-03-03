@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2025-11-28T17:26:38.589Z",
-  "commitIndex": 116,
-  "commitDate": "2025-03-02T09:41:51.000Z",
-  "message": "ci: run security audit on dependencies"
+  "generatedAt": "2025-11-28T17:26:38.677Z",
+  "commitIndex": 117,
+  "commitDate": "2025-03-03T16:13:04.000Z",
+  "message": "perf: cache SOP lookup results to reduce latency"
 }
