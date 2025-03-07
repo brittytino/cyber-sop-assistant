@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2025-11-28T17:26:38.677Z",
-  "commitIndex": 117,
-  "commitDate": "2025-03-03T16:13:04.000Z",
-  "message": "perf: cache SOP lookup results to reduce latency"
+  "generatedAt": "2025-11-28T17:26:38.773Z",
+  "commitIndex": 118,
+  "commitDate": "2025-03-07T16:37:25.000Z",
+  "message": "fix: resolve conflicting route definitions"
 }
