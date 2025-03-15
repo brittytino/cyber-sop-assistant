@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2025-11-28T17:26:38.952Z",
-  "commitIndex": 120,
-  "commitDate": "2025-03-14T14:32:07.000Z",
-  "message": "feat: add follow-up reminder scheduling"
+  "generatedAt": "2025-11-28T17:26:39.034Z",
+  "commitIndex": 121,
+  "commitDate": "2025-03-15T14:43:24.000Z",
+  "message": "fix: ensure timezone normalization for reports"
 }
