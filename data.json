@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2025-11-28T17:26:39.124Z",
-  "commitIndex": 122,
-  "commitDate": "2025-03-16T05:59:46.000Z",
-  "message": "perf: optimize DB indexes used by search"
+  "generatedAt": "2025-11-28T17:26:39.214Z",
+  "commitIndex": 123,
+  "commitDate": "2025-03-17T07:53:36.000Z",
+  "message": "fix: correct date parsing for incident timestamps"
 }
