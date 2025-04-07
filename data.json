@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2025-11-28T17:26:40.170Z",
-  "commitIndex": 133,
-  "commitDate": "2025-04-06T16:42:05.000Z",
-  "message": "feat: add Marathi translations"
+  "generatedAt": "2025-11-28T17:26:40.265Z",
+  "commitIndex": 134,
+  "commitDate": "2025-04-07T18:26:47.000Z",
+  "message": "ux: clarify error messages during validation"
 }
