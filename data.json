@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2025-11-28T17:26:40.265Z",
-  "commitIndex": 134,
-  "commitDate": "2025-04-07T18:26:47.000Z",
-  "message": "ux: clarify error messages during validation"
+  "generatedAt": "2025-11-28T17:26:40.359Z",
+  "commitIndex": 135,
+  "commitDate": "2025-04-09T05:29:04.000Z",
+  "message": "fix: handle long text in summary rendering"
 }
