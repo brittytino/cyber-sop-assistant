@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2025-11-28T17:26:40.359Z",
-  "commitIndex": 135,
-  "commitDate": "2025-04-09T05:29:04.000Z",
-  "message": "fix: handle long text in summary rendering"
+  "generatedAt": "2025-11-28T17:26:40.452Z",
+  "commitIndex": 136,
+  "commitDate": "2025-04-12T04:46:27.000Z",
+  "message": "feat: add email confirmation step"
 }
