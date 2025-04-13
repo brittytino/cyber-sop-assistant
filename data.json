@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2025-11-28T17:26:40.452Z",
-  "commitIndex": 136,
-  "commitDate": "2025-04-12T04:46:27.000Z",
-  "message": "feat: add email confirmation step"
+  "generatedAt": "2025-11-28T17:26:40.549Z",
+  "commitIndex": 137,
+  "commitDate": "2025-04-13T16:11:23.000Z",
+  "message": "security: sanitize user-submitted attachments"
 }
