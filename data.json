@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2025-11-28T17:26:40.730Z",
-  "commitIndex": 139,
-  "commitDate": "2025-04-16T06:50:29.000Z",
-  "message": "docs: describe model training data pipeline"
+  "generatedAt": "2025-11-28T17:26:40.830Z",
+  "commitIndex": 140,
+  "commitDate": "2025-04-18T12:06:23.000Z",
+  "message": "security: restrict file types for uploads"
 }
