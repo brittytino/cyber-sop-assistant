@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2025-11-28T17:26:40.830Z",
-  "commitIndex": 140,
-  "commitDate": "2025-04-18T12:06:23.000Z",
-  "message": "security: restrict file types for uploads"
+  "generatedAt": "2025-11-28T17:26:40.920Z",
+  "commitIndex": 141,
+  "commitDate": "2025-04-19T21:06:34.000Z",
+  "message": "refactor: simplify middleware stack"
 }
