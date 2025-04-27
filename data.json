@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2025-11-28T17:26:41.198Z",
-  "commitIndex": 144,
-  "commitDate": "2025-04-25T05:07:10.000Z",
-  "message": "ui: improve alert colors for accessibility"
+  "generatedAt": "2025-11-28T17:26:41.286Z",
+  "commitIndex": 145,
+  "commitDate": "2025-04-27T07:59:42.000Z",
+  "message": "fix: preserve user attachments during retries"
 }
