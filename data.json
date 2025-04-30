@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2025-11-28T17:26:41.286Z",
-  "commitIndex": 145,
-  "commitDate": "2025-04-27T07:59:42.000Z",
-  "message": "fix: preserve user attachments during retries"
+  "generatedAt": "2025-11-28T17:26:41.385Z",
+  "commitIndex": 146,
+  "commitDate": "2025-04-30T07:54:31.000Z",
+  "message": "feat: add admin endpoint for SOP updates"
 }
