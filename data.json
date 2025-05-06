@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2025-11-28T17:26:41.493Z",
-  "commitIndex": 147,
-  "commitDate": "2025-05-03T06:29:53.000Z",
-  "message": "ci: cache node_modules between builds"
+  "generatedAt": "2025-11-28T17:26:41.623Z",
+  "commitIndex": 148,
+  "commitDate": "2025-05-06T08:39:42.000Z",
+  "message": "fix: ensure correct Content-Type on API responses"
 }
