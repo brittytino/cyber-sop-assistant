@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2025-11-28T17:26:41.623Z",
-  "commitIndex": 148,
-  "commitDate": "2025-05-06T08:39:42.000Z",
-  "message": "fix: ensure correct Content-Type on API responses"
+  "generatedAt": "2025-11-28T17:26:41.703Z",
+  "commitIndex": 149,
+  "commitDate": "2025-05-07T17:34:26.000Z",
+  "message": "ci: add lint step to pipeline"
 }
