@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2025-11-28T17:26:41.703Z",
-  "commitIndex": 149,
-  "commitDate": "2025-05-07T17:34:26.000Z",
-  "message": "ci: add lint step to pipeline"
+  "generatedAt": "2025-11-28T17:26:41.796Z",
+  "commitIndex": 150,
+  "commitDate": "2025-05-10T12:01:22.000Z",
+  "message": "fix: handle long text in summary rendering"
 }
