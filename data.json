@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2025-11-28T17:26:41.796Z",
-  "commitIndex": 150,
-  "commitDate": "2025-05-10T12:01:22.000Z",
-  "message": "fix: handle long text in summary rendering"
+  "generatedAt": "2025-11-28T17:26:41.896Z",
+  "commitIndex": 151,
+  "commitDate": "2025-05-11T08:10:50.000Z",
+  "message": "refactor: consolidate form validation rules"
 }
