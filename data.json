@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2025-11-28T17:26:41.978Z",
-  "commitIndex": 152,
-  "commitDate": "2025-05-12T06:20:52.000Z",
-  "message": "ux: reduce steps in quick-report flow"
+  "generatedAt": "2025-11-28T17:26:42.063Z",
+  "commitIndex": 153,
+  "commitDate": "2025-05-13T12:03:36.000Z",
+  "message": "feat: add recommended next steps from SOP"
 }
