@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2025-11-28T17:26:42.153Z",
-  "commitIndex": 154,
-  "commitDate": "2025-05-16T12:36:07.000Z",
-  "message": "ui: improve alert colors for accessibility"
+  "generatedAt": "2025-11-28T17:26:42.236Z",
+  "commitIndex": 155,
+  "commitDate": "2025-05-17T17:09:57.000Z",
+  "message": "fix: correct doc upload progress calculation"
 }
