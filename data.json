@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2025-11-28T17:26:42.729Z",
-  "commitIndex": 160,
-  "commitDate": "2025-05-30T18:22:35.000Z",
-  "message": "feat: add confidence score to suggestions"
+  "generatedAt": "2025-11-28T17:26:42.816Z",
+  "commitIndex": 161,
+  "commitDate": "2025-06-02T07:59:15.000Z",
+  "message": "refactor: migrate to typed API responses"
 }
