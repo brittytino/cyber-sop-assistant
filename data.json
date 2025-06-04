@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2025-11-28T17:26:42.910Z",
-  "commitIndex": 162,
-  "commitDate": "2025-06-03T15:20:11.000Z",
-  "message": "fix: remove debug logs from production build"
+  "generatedAt": "2025-11-28T17:26:43.017Z",
+  "commitIndex": 163,
+  "commitDate": "2025-06-04T04:46:59.000Z",
+  "message": "fix: correct doc upload progress calculation"
 }
