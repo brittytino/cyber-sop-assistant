@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2025-11-28T17:26:43.017Z",
-  "commitIndex": 163,
-  "commitDate": "2025-06-04T04:46:59.000Z",
-  "message": "fix: correct doc upload progress calculation"
+  "generatedAt": "2025-11-28T17:26:43.126Z",
+  "commitIndex": 164,
+  "commitDate": "2025-06-06T11:37:03.000Z",
+  "message": "fix: ensure correct Content-Type on API responses"
 }
