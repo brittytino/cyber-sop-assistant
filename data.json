@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2025-11-28T17:26:43.655Z",
-  "commitIndex": 169,
-  "commitDate": "2025-06-13T13:11:57.000Z",
-  "message": "fix: handle long text in summary rendering"
+  "generatedAt": "2025-11-28T17:26:43.769Z",
+  "commitIndex": 170,
+  "commitDate": "2025-06-14T17:59:14.000Z",
+  "message": "docs: update contribution guidelines"
 }
