@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2025-11-28T17:26:43.873Z",
-  "commitIndex": 171,
-  "commitDate": "2025-06-16T07:00:36.000Z",
-  "message": "fix: ensure correct Content-Type on API responses"
+  "generatedAt": "2025-11-28T17:26:43.967Z",
+  "commitIndex": 172,
+  "commitDate": "2025-06-17T17:34:33.000Z",
+  "message": "perf: reduce bundle size by code-splitting"
 }
