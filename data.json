@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2025-11-28T17:26:43.967Z",
-  "commitIndex": 172,
-  "commitDate": "2025-06-17T17:34:33.000Z",
-  "message": "perf: reduce bundle size by code-splitting"
+  "generatedAt": "2025-11-28T17:26:44.053Z",
+  "commitIndex": 173,
+  "commitDate": "2025-06-18T14:17:07.000Z",
+  "message": "perf: lazy-load heavy model assets"
 }
