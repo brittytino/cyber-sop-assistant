@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2025-11-28T17:26:44.142Z",
-  "commitIndex": 174,
-  "commitDate": "2025-06-21T08:31:46.000Z",
-  "message": "fix: avoid duplicate report creation on retry"
+  "generatedAt": "2025-11-28T17:26:44.239Z",
+  "commitIndex": 175,
+  "commitDate": "2025-06-22T17:19:57.000Z",
+  "message": "test: add unit tests for NLP entity extraction"
 }
