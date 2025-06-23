@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2025-11-28T17:26:44.239Z",
-  "commitIndex": 175,
-  "commitDate": "2025-06-22T17:19:57.000Z",
-  "message": "test: add unit tests for NLP entity extraction"
+  "generatedAt": "2025-11-28T17:26:44.335Z",
+  "commitIndex": 176,
+  "commitDate": "2025-06-23T11:51:21.000Z",
+  "message": "refactor: consolidate form validation rules"
 }
