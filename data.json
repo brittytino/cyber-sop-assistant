@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2025-11-28T17:26:44.612Z",
-  "commitIndex": 179,
-  "commitDate": "2025-07-01T14:53:03.000Z",
-  "message": "perf: memoize expensive NLP transforms"
+  "generatedAt": "2025-11-28T17:26:44.694Z",
+  "commitIndex": 180,
+  "commitDate": "2025-07-04T19:11:29.000Z",
+  "message": "ux: clarify error messages during validation"
 }
