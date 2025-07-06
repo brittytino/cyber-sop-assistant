@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2025-11-28T17:26:44.694Z",
-  "commitIndex": 180,
-  "commitDate": "2025-07-04T19:11:29.000Z",
-  "message": "ux: clarify error messages during validation"
+  "generatedAt": "2025-11-28T17:26:44.782Z",
+  "commitIndex": 181,
+  "commitDate": "2025-07-06T13:02:15.000Z",
+  "message": "ci: cache node_modules between builds"
 }
