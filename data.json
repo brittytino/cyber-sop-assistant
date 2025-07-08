@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2025-11-28T17:26:44.862Z",
-  "commitIndex": 182,
-  "commitDate": "2025-07-07T13:40:58.000Z",
-  "message": "perf: reduce memory usage during parsing"
+  "generatedAt": "2025-11-28T17:26:44.941Z",
+  "commitIndex": 183,
+  "commitDate": "2025-07-08T09:42:56.000Z",
+  "message": "ux: show contextual help for each form field"
 }
