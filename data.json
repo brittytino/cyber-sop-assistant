@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2025-11-28T17:26:45.355Z",
-  "commitIndex": 187,
-  "commitDate": "2025-07-16T15:59:19.000Z",
-  "message": "ci: cache node_modules between builds"
+  "generatedAt": "2025-11-28T17:26:45.476Z",
+  "commitIndex": 188,
+  "commitDate": "2025-07-17T14:20:20.000Z",
+  "message": "test: add integration test for report flow"
 }
