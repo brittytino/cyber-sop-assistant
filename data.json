@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2025-11-28T17:26:45.476Z",
-  "commitIndex": 188,
-  "commitDate": "2025-07-17T14:20:20.000Z",
-  "message": "test: add integration test for report flow"
+  "generatedAt": "2025-11-28T17:26:45.572Z",
+  "commitIndex": 189,
+  "commitDate": "2025-07-19T12:59:08.000Z",
+  "message": "fix: preserve user attachments during retries"
 }
