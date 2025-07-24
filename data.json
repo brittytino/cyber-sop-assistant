@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2025-11-28T17:26:45.661Z",
-  "commitIndex": 190,
-  "commitDate": "2025-07-23T16:51:19.000Z",
-  "message": "fix: preserve user attachments during retries"
+  "generatedAt": "2025-11-28T17:26:45.752Z",
+  "commitIndex": 191,
+  "commitDate": "2025-07-24T22:33:00.000Z",
+  "message": "security: restrict file types for uploads"
 }
