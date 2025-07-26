@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2025-11-28T17:26:45.752Z",
-  "commitIndex": 191,
-  "commitDate": "2025-07-24T22:33:00.000Z",
-  "message": "security: restrict file types for uploads"
+  "generatedAt": "2025-11-28T17:26:45.835Z",
+  "commitIndex": 192,
+  "commitDate": "2025-07-26T16:57:48.000Z",
+  "message": "fix: prevent session expiry during long forms"
 }
