@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2025-11-28T17:26:45.835Z",
-  "commitIndex": 192,
-  "commitDate": "2025-07-26T16:57:48.000Z",
-  "message": "fix: prevent session expiry during long forms"
+  "generatedAt": "2025-11-28T17:26:45.923Z",
+  "commitIndex": 193,
+  "commitDate": "2025-07-27T14:55:52.000Z",
+  "message": "security: limit rate of suspicious requests"
 }
