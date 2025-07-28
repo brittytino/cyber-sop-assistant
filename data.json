@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2025-11-28T17:26:45.923Z",
-  "commitIndex": 193,
-  "commitDate": "2025-07-27T14:55:52.000Z",
-  "message": "security: limit rate of suspicious requests"
+  "generatedAt": "2025-11-28T17:26:46.019Z",
+  "commitIndex": 194,
+  "commitDate": "2025-07-28T04:06:54.000Z",
+  "message": "fix: trim whitespace in text fields before NLP"
 }
