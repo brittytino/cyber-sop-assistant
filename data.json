@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2025-11-28T17:26:46.113Z",
-  "commitIndex": 195,
-  "commitDate": "2025-07-30T17:44:41.000Z",
-  "message": "fix: avoid duplicate report creation on retry"
+  "generatedAt": "2025-11-28T17:26:46.210Z",
+  "commitIndex": 196,
+  "commitDate": "2025-08-02T11:53:34.000Z",
+  "message": "ui: add skeleton loaders to list pages"
 }
