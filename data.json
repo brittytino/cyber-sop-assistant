@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2025-11-28T17:26:46.210Z",
-  "commitIndex": 196,
-  "commitDate": "2025-08-02T11:53:34.000Z",
-  "message": "ui: add skeleton loaders to list pages"
+  "generatedAt": "2025-11-28T17:26:46.298Z",
+  "commitIndex": 197,
+  "commitDate": "2025-08-03T15:13:20.000Z",
+  "message": "fix: handle edge-case of empty attachments array"
 }
