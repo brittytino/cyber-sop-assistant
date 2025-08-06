@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2025-11-28T17:26:46.503Z",
-  "commitIndex": 199,
-  "commitDate": "2025-08-05T04:19:26.000Z",
-  "message": "ux: show contextual help for each form field"
+  "generatedAt": "2025-11-28T17:26:46.610Z",
+  "commitIndex": 200,
+  "commitDate": "2025-08-06T12:10:49.000Z",
+  "message": "feat: add Marathi translations"
 }
