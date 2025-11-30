@@ -59,7 +59,7 @@ class Settings(BaseSettings):
     
     # RAG Configuration
     RAG_TOP_K: int = Field(default=5, env="RAG_TOP_K")
-    RAG_SCORE_THRESHOLD: float = Field(default=0.7, env="RAG_SCORE_THRESHOLD")
+    RAG_SCORE_THRESHOLD: float = Field(default=0.5, env="RAG_SCORE_THRESHOLD")
     
     # LLM Generation Parameters
     LLM_TEMPERATURE: float = Field(default=0.1, env="LLM_TEMPERATURE")
@@ -70,7 +70,7 @@ class Settings(BaseSettings):
     # Cache Configuration
     CACHE_ENABLED: bool = Field(default=True, env="CACHE_ENABLED")
     CACHE_PATH: str = Field(default="./data/cache", env="CACHE_PATH")
-    CACHE_TTL: int = Field(default=3600, env="CACHE_TTL")  # 1 hour
+    CACHE_TTL: int = Field(default=3600, env="CACHE_TTL")
     
     # Rate Limiting
     RATE_LIMIT_PER_MINUTE: int = Field(default=60, env="RATE_LIMIT_PER_MINUTE")
@@ -90,7 +90,7 @@ class Settings(BaseSettings):
         default="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36",
         env="SCRAPER_USER_AGENT"
     )
-    SCRAPER_DELAY: int = Field(default=2, env="SCRAPER_DELAY")  # seconds between requests
+    SCRAPER_DELAY: int = Field(default=2, env="SCRAPER_DELAY")
     
     # Supported Languages
     SUPPORTED_LANGUAGES: List[str] = Field(
@@ -109,6 +109,7 @@ class Settings(BaseSettings):
         env_file = ".env.local"
         env_file_encoding = "utf-8"
         case_sensitive = True
+        extra = "ignore"  # Allow extra fields in .env
 
 
 # Global settings instance

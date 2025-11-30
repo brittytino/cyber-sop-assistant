@@ -1,0 +1,197 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+pip-wheel-metadata/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Virtual Environments
+venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+.venv/
+.virtualenv/
+backend/venv/
+backend/env/
+backend/.venv/
+
+# PyCharm
+.idea/
+
+# VS Code
+.vscode/
+*.code-workspace
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# pyenv
+.python-version
+
+# Pytest
+.pytest_cache/
+.coverage
+htmlcov/
+*.cover
+.hypothesis/
+
+# Node.js
+node_modules/
+frontend/node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+.pnpm-debug.log*
+
+# Frontend build
+frontend/dist/
+frontend/build/
+frontend/.next/
+frontend/out/
+
+# Logs
+*.log
+logs/
+data/logs/*.log
+backend/data/logs/*.log
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+*.env
+config/development/*.env
+config/production/*.env
+config/test/*.env
+!.env.example
+
+# Database
+*.db
+*.sqlite
+*.sqlite3
+data/cyber_sop.db
+backend/data/cyber_sop.db
+
+# OS
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+*~
+
+# Temporary files
+*.tmp
+*.temp
+*.swp
+*.swo
+.cache/
+
+# Data and Models (large files)
+data/raw/**
+!data/raw/.gitkeep
+data/processed/**
+!data/processed/.gitkeep
+data/cache/**
+!data/cache/.gitkeep
+data/vectorstore/**
+!data/vectorstore/.gitkeep
+backend/data/raw/**
+backend/data/processed/**
+backend/data/cache/**
+backend/data/vectorstore/**
+
+# Model files (large binary files)
+models/base/**
+models/finetuned/**
+models/embeddings/**
+models/classifiers/**
+backend/models/finetuned/**
+backend/models/embeddings/**
+*.bin
+*.pt
+*.pth
+*.h5
+*.onnx
+*.safetensors
+
+# Training outputs
+wandb/
+mlruns/
+.tensorboard/
+
+# Docker volumes
+docker/volumes/
+
+# Alembic
+alembic/versions/*.pyc
+
+# IDEs and editors
+*.sublime-project
+*.sublime-workspace
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.tmproj
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+# Testing
+.tox/
+.nox/
+
+# Package manager lock files (optional - uncomment if you don't want to track them)
+# package-lock.json
+# yarn.lock
+# pnpm-lock.yaml
+
+# Build outputs
+*.out
+*.app
+
+# Compiled source
+*.com
+*.class
+*.dll
+*.exe
+*.o
+*.so
+
+# Secrets and credentials
+*.pem
+*.key
+*.cert
+secrets/
+credentials/
+
+# Backup files
+*.bak
+*.backup
