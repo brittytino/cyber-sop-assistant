@@ -5,7 +5,7 @@ from fastapi import APIRouter, Depends, BackgroundTasks
 import uuid
 
 from app.models.schemas import DataRefreshRequest, DataRefreshResponse
-from app.services.scraper_service import scraper_service
+# from app.services.scraper_service import scraper_service  # Requires selenium
 from app.services.cache_service import cache_service
 from app.core.logging import logger
 
@@ -64,20 +64,5 @@ async def get_cache_stats():
 
 async def _run_data_refresh(task_id: str, sources: list, force: bool):
     """Background task to refresh data"""
-    logger.info(f"[{task_id}] Starting data refresh (sources: {sources})")
-    
-    try:
-        if "all" in sources:
-            results = await scraper_service.scrape_all()
-        else:
-            results = {}
-            for source in sources:
-                if source == "cybercrime_portal":
-                    results[source] = await scraper_service.scrape_cybercrime_portal()
-                elif source == "cert_in":
-                    results[source] = await scraper_service.scrape_cert_in()
-        
-        logger.info(f"[{task_id}] Data refresh completed: {results}")
-        
-    except Exception as e:
-        logger.error(f"[{task_id}] Data refresh failed: {e}", exc_info=True)
+    logger.info(f"[{task_id}] Data refresh requested but scraper not available (requires selenium)")
+    logger.warning("Install selenium to enable data scraping: pip install selenium")

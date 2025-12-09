@@ -1,0 +1,111 @@
+{
+  "app": {
+    "title": "Cyber SOP Assistant",
+    "subtitle": "Government-aligned Cybercrime Reporting Guidance System",
+    "version": "Version {{version}}"
+  },
+  "nav": {
+    "home": "Home",
+    "chat": "Chat Assistant",
+    "knowledge": "Knowledge Base",
+    "reports": "Reports",
+    "settings": "Settings",
+    "about": "About"
+  },
+  "language": {
+    "select": "Select Language",
+    "current": "Current Language"
+  },
+  "chat": {
+    "title": "Chat with SOP Assistant",
+    "placeholder": "Ask about cybercrime reporting procedures...",
+    "send": "Send",
+    "clear": "Clear Chat",
+    "typing": "AI is typing...",
+    "error": "Failed to get response. Please try again.",
+    "empty": "Start a conversation by asking a question",
+    "newChat": "New Chat"
+  },
+  "categories": {
+    "title": "Crime Categories",
+    "select": "Select a category",
+    "all": "All Categories",
+    "financial": "Financial Fraud",
+    "social": "Social Media Crimes",
+    "cyber": "Cyber Attacks",
+    "data": "Data Breach",
+    "identity": "Identity Theft",
+    "harassment": "Online Harassment",
+    "ransomware": "Ransomware",
+    "phishing": "Phishing"
+  },
+  "report": {
+    "title": "Report Cybercrime",
+    "steps": "Reporting Steps",
+    "platform": "Platform",
+    "jurisdiction": "Jurisdiction",
+    "evidence": "Evidence Required",
+    "timeline": "Timeline",
+    "status": "Status",
+    "submit": "Submit Report",
+    "draft": "Save as Draft",
+    "preview": "Preview"
+  },
+  "knowledge": {
+    "title": "Knowledge Base",
+    "search": "Search documents...",
+    "filter": "Filter",
+    "sort": "Sort by",
+    "recent": "Recently Updated",
+    "popular": "Most Popular",
+    "category": "By Category",
+    "source": "Source",
+    "noResults": "No documents found"
+  },
+  "settings": {
+    "title": "Settings",
+    "language": "Language",
+    "theme": "Theme",
+    "notifications": "Notifications",
+    "privacy": "Privacy",
+    "about": "About",
+    "save": "Save Changes",
+    "reset": "Reset to Default"
+  },
+  "common": {
+    "loading": "Loading...",
+    "error": "Error",
+    "success": "Success",
+    "cancel": "Cancel",
+    "confirm": "Confirm",
+    "delete": "Delete",
+    "edit": "Edit",
+    "save": "Save",
+    "back": "Back",
+    "next": "Next",
+    "previous": "Previous",
+    "search": "Search",
+    "filter": "Filter",
+    "sort": "Sort",
+    "download": "Download",
+    "upload": "Upload",
+    "close": "Close",
+    "yes": "Yes",
+    "no": "No"
+  },
+  "errors": {
+    "general": "Something went wrong. Please try again.",
+    "network": "Network error. Please check your connection.",
+    "notFound": "Resource not found.",
+    "unauthorized": "Unauthorized access.",
+    "serverError": "Server error. Please try again later.",
+    "validation": "Please check your input."
+  },
+  "platforms": {
+    "cybercrime": "National Cybercrime Reporting Portal",
+    "certIn": "CERT-In",
+    "meity": "MeitY",
+    "rbi": "RBI Complaint Portal",
+    "local": "Local Police Station"
+  }
+}

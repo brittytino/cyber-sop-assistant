@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Offline - Cyber SOP Assistant</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      text-align: center;
+      padding: 20px;
+    }
+    .container {
+      max-width: 500px;
+    }
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+    p {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+      opacity: 0.9;
+    }
+    .emergency {
+      background: rgba(255, 255, 255, 0.2);
+      padding: 20px;
+      border-radius: 12px;
+      margin-top: 30px;
+    }
+    .emergency h2 {
+      margin-top: 0;
+      font-size: 1.5rem;
+    }
+    .helpline {
+      display: inline-block;
+      background: white;
+      color: #667eea;
+      padding: 12px 24px;
+      margin: 8px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1.5rem;
+    }
+    .helpline:hover {
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>📡 You're Offline</h1>
+    <p>
+      Cyber SOP Assistant requires an internet connection to provide real-time guidance.
+      Please check your network and try again.
+    </p>
+    <p>
+      <small>Some features may be available offline once cached.</small>
+    </p>
+
+    <div class="emergency">
+      <h2>🚨 Emergency Helplines</h2>
+      <p style="font-size: 0.9rem; opacity: 0.9;">You can call these helplines even without internet:</p>
+      <div>
+        <a href="tel:1930" class="helpline">1930</a>
+        <small style="display: block; margin-top: 4px;">Financial Fraud (24x7)</small>
+      </div>
+      <div style="margin-top: 16px;">
+        <a href="tel:112" class="helpline">112</a>
+        <small style="display: block; margin-top: 4px;">Emergency (24x7)</small>
+      </div>
+    </div>
+
+    <div style="margin-top: 40px; opacity: 0.7; font-size: 0.9rem;">
+      <p>Once online, you can:</p>
+      <ul style="list-style: none; padding: 0;">
+        <li>✓ Get AI-powered cybercrime guidance</li>
+        <li>✓ File complaints on cybercrime.gov.in</li>
+        <li>✓ Access step-by-step SOPs</li>
+        <li>✓ Download complaint drafts as PDF</li>
+      </ul>
+    </div>
+  </div>
+
+  <script>
+    // Auto-reload when connection restored
+    window.addEventListener('online', () => {
+      location.reload()
+    })
+  </script>
+</body>
+</html>

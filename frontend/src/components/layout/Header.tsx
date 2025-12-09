@@ -3,7 +3,6 @@ import { useLanguage } from '@/context/LanguageContext'
 import { useTheme } from '@/context/ThemeContext'
 import { Button } from '@/components/ui/button'
 import { Select } from '@/components/ui/select'
-import { LANGUAGES } from '@/constants/languages'
 import { Moon, Sun, Shield } from 'lucide-react'
 
 export const Header: React.FC = () => {

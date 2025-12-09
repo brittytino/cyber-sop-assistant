@@ -7,7 +7,7 @@ import {
   DialogDescription,
 } from '@/components/ui/dialog'
 import { QuickActions } from './QuickActions'
-import { Phone, AlertCircle } from 'lucide-react'
+import { AlertCircle } from 'lucide-react'
 
 interface EmergencyModalProps {
   open: boolean

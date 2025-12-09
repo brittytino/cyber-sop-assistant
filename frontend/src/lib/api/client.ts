@@ -2,6 +2,12 @@ import axios, { AxiosInstance, AxiosError, InternalAxiosRequestConfig } from 'ax
 import { API_BASE_URL, API_TIMEOUT } from '@/constants/config'
 import { ApiError } from '@/types/api.types'
 
+declare module 'axios' {
+  export interface InternalAxiosRequestConfig {
+    metadata?: { startTime: Date }
+  }
+}
+
 class APIClient {
   private client: AxiosInstance
 
@@ -39,10 +45,13 @@ class APIClient {
     // Response interceptor
     this.client.interceptors.response.use(
       (response) => {
-        const duration = new Date().getTime() - response.config.metadata.startTime.getTime()
-        console.log(
-          `[API] ${response.config.method?.toUpperCase()} ${response.config.url} - ${response.status} (${duration}ms)`
-        )
+        const startTime = response.config.metadata?.startTime
+        if (startTime) {
+          const duration = new Date().getTime() - startTime.getTime()
+          console.log(
+            `[API] ${response.config.method?.toUpperCase()} ${response.config.url} - ${response.status} (${duration}ms)`
+          )
+        }
         return response
       },
       (error: AxiosError<ApiError>) => {

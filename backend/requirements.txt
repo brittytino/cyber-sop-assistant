@@ -1,8 +1,8 @@
 # FastAPI Core
 fastapi==0.109.0
 uvicorn[standard]==0.27.0
-pydantic==2.5.3
-pydantic-settings==2.1.0
+pydantic>=2.5.3
+pydantic-settings>=2.1.0
 
 # Database
 sqlalchemy==2.0.25
@@ -21,8 +21,8 @@ requests==2.31.0
 lxml==5.1.0
 
 # Data Processing
-pandas==2.2.0
-numpy==1.26.3
+pandas>=2.0.0
+numpy>=1.24.0
 
 # PDF Generation
 reportlab==4.0.9

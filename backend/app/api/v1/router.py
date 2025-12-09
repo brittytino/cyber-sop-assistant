@@ -4,6 +4,7 @@ API V1 Router - Aggregates all endpoints
 from fastapi import APIRouter
 
 from app.api.v1.endpoints import chat, complaints, evidence, health, analytics, admin
+from app.api.v1 import multilingual
 
 api_v1_router = APIRouter()
 
@@ -11,6 +12,11 @@ api_v1_router = APIRouter()
 api_v1_router.include_router(
     chat.router,
     tags=["Chat"]
+)
+
+api_v1_router.include_router(
+    multilingual.router,
+    tags=["Multilingual"]
 )
 
 api_v1_router.include_router(

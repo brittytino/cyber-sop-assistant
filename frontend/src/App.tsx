@@ -1,23 +1,41 @@
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 import { ThemeProvider } from '@/context/ThemeContext'
 import { LanguageProvider } from '@/context/LanguageContext'
 import MainLayout from '@/components/layout/MainLayout'
-import ChatInterface from '@/features/chat/components/ChatInterface'
-import { EmergencyButton } from '@/features/emergency/components/EmergencyButton'
 import ErrorBoundary from '@/components/common/ErrorBoundary'
+
+// Pages
+import HomePage from '@/pages/HomePage'
+import ChatPage from '@/pages/ChatPage'
+import ComplaintsPage from '@/pages/ComplaintsPage'
+import ComplaintDetailPage from '@/pages/ComplaintDetailPage'
+import AboutPage from '@/pages/AboutPage'
+import HowItWorksPage from '@/pages/HowItWorksPage'
+import ResourcesPage from '@/pages/ResourcesPage'
+import NotFoundPage from '@/pages/NotFoundPage'
 
 function App() {
   return (
     <ErrorBoundary>
-      <ThemeProvider>
-        <LanguageProvider>
-          <MainLayout>
-            <div className="container mx-auto px-4 py-6 max-w-7xl">
-              <EmergencyButton />
-              <ChatInterface />
-            </div>
-          </MainLayout>
-        </LanguageProvider>
-      </ThemeProvider>
+      <BrowserRouter>
+        <ThemeProvider>
+          <LanguageProvider>
+            <MainLayout>
+              <Routes>
+                <Route path="/" element={<HomePage />} />
+                <Route path="/chat" element={<ChatPage />} />
+                <Route path="/complaints" element={<ComplaintsPage />} />
+                <Route path="/complaints/:id" element={<ComplaintDetailPage />} />
+                <Route path="/about" element={<AboutPage />} />
+                <Route path="/how-it-works" element={<HowItWorksPage />} />
+                <Route path="/resources" element={<ResourcesPage />} />
+                <Route path="/404" element={<NotFoundPage />} />
+                <Route path="*" element={<Navigate to="/404" replace />} />
+              </Routes>
+            </MainLayout>
+          </LanguageProvider>
+        </ThemeProvider>
+      </BrowserRouter>
     </ErrorBoundary>
   )
 }

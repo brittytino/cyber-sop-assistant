@@ -1,5 +1,6 @@
 """
 Chat Endpoint - Main Conversational Interface
+ENHANCED with production-ready features
 """
 from fastapi import APIRouter, Depends, HTTPException, status
 from datetime import datetime
@@ -12,6 +13,7 @@ from app.services.llm_service import llm_service
 from app.services.rag_service import rag_service
 from app.services.cache_service import cache_service
 from app.services.classifier_service import classifier_service
+from app.services.enhanced_query_service import enhanced_query_service
 from app.repositories.analytics_repository import AnalyticsRepository
 from app.core.dependencies import (
     get_analytics_repository,
@@ -167,3 +169,89 @@ async def get_suggestions():
             }
         ]
     }
+
+
+@router.post("/chat/v2", summary="Enhanced Chat Endpoint with Multi-Intent Detection")
+async def chat_v2(
+    request: ChatRequest,
+    analytics_repo: AnalyticsRepository = Depends(get_analytics_repository),
+    _: None = Depends(verify_ollama_connection),
+    __: None = Depends(verify_rag_loaded)
+):
+    """
+    ENHANCED chat endpoint with production-ready features:
+    - Multi-intent detection (multiple crime types in one query)
+    - 30+ crime type classification
+    - Multi-language support (Hindi, Tamil, Telugu, Bengali, Marathi, Gujarati)
+    - Timeline-based action plans (NOW, 24H, 7D, ONGOING)
+    - Evidence checklists
+    - Official verified links (.gov.in)
+    - Comprehensive disclaimers
+    - Response time < 3 seconds
+    """
+    request_id = generate_request_id()
+    start_time = time.time()
+    
+    logger.info(f"[{request_id}] Processing enhanced chat request: {request.query[:100]}...")
+    
+    try:
+        # Check cache first
+        cache_key = f"v2_{request.query}_{request.language.value}"
+        cached_response = cache_service.get(cache_key)
+        if cached_response:
+            logger.info(f"[{request_id}] Returning cached enhanced response")
+            cached_response["request_id"] = request_id
+            cached_response["timestamp"] = datetime.utcnow().isoformat()
+            return cached_response
+        
+        # Process query with enhanced service
+        enhanced_response = await enhanced_query_service.process_query(
+            query=request.query,
+            language=request.language.value,
+            user_context={
+                "request_id": request_id,
+                "include_sources": request.include_sources
+            }
+        )
+        
+        # Add request metadata
+        enhanced_response["request_id"] = request_id
+        
+        # Cache response
+        if enhanced_response.get("success"):
+            cache_service.set(cache_key, enhanced_response)
+        
+        # Log query analytics
+        await analytics_repo.log_query(
+            request_id=request_id,
+            query=request.query,
+            language=request.language.value,
+            crime_type=enhanced_response.get("detected_crime_type", {}).get("code"),
+            response_time_ms=enhanced_response.get("response_time_ms", 0),
+            success=enhanced_response.get("success", False),
+            error_message=enhanced_response.get("error") if not enhanced_response.get("success") else None
+        )
+        
+        logger.info(f"[{request_id}] Enhanced response generated ({enhanced_response.get('response_time_ms')}ms)")
+        
+        return enhanced_response
+        
+    except Exception as e:
+        processing_time = round((time.time() - start_time) * 1000, 2)
+        logger.error(f"[{request_id}] Error in enhanced chat: {e}", exc_info=True)
+        
+        # Log failed query
+        await analytics_repo.log_query(
+            request_id=request_id,
+            query=request.query,
+            language=request.language.value,
+            crime_type=None,
+            response_time_ms=processing_time,
+            success=False,
+            error_message=str(e)
+        )
+        
+        raise HTTPException(
+            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+            detail=f"Failed to process enhanced query: {str(e)}"
+        )

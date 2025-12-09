@@ -5,6 +5,7 @@ import { storage } from '@/lib/utils/storage'
 interface ThemeContextType {
   theme: Theme
   setTheme: (theme: Theme) => void
+  toggleTheme: () => void
 }
 
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined)
@@ -34,7 +35,12 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ childre
     storage.set('theme', newTheme)
   }
 
-  return <ThemeContext.Provider value={{ theme, setTheme }}>{children}</ThemeContext.Provider>
+  const toggleTheme = () => {
+    const newTheme = theme === 'dark' ? 'light' : 'dark'
+    setTheme(newTheme)
+  }
+
+  return <ThemeContext.Provider value={{ theme, setTheme, toggleTheme }}>{children}</ThemeContext.Provider>
 }
 
 export const useTheme = () => {

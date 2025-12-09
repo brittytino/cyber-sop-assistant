@@ -1,6 +1,6 @@
 import React from 'react'
 import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card'
-import { FileText, CheckCircle2 } from 'lucide-react'
+import { FileText } from 'lucide-react'
 
 interface ReportingStepsProps {
   steps: string[]
