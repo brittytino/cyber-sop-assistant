@@ -1,4 +1,5 @@
 import React from 'react'
+import { useTranslation } from 'react-i18next'
 import { Card } from '@/components/ui/card'
 import { MessageBubble } from './MessageBubble'
 import { InputBox } from './InputBox'
@@ -8,6 +9,7 @@ import { Loader } from '@/components/common/Loader'
 import { AlertCircle, Sparkles } from 'lucide-react'
 
 export const ChatInterface: React.FC = () => {
+  const { t } = useTranslation()
   const { messages, isLoading, error, sendMessage, clearMessages } = useChatMessages()
   const messagesEndRef = React.useRef<HTMLDivElement>(null)
 
@@ -25,10 +27,10 @@ export const ChatInterface: React.FC = () => {
       <div className="mb-6 text-center">
         <div className="flex items-center justify-center mb-2">
           <Sparkles className="h-8 w-8 text-primary mr-2" />
-          <h1 className="text-3xl font-bold">AI Cyber Crime Assistant</h1>
+          <h1 className="text-3xl font-bold">{t('chat.assistant.title')}</h1>
         </div>
         <p className="text-muted-foreground">
-          Get instant guidance on reporting cybercrimes in India
+          {t('chat.assistant.subtitle')}
         </p>
       </div>
 
@@ -44,36 +46,35 @@ export const ChatInterface: React.FC = () => {
             <div className="flex flex-col items-center justify-center h-full text-center space-y-4">
               <Sparkles className="h-12 w-12 text-muted-foreground" />
               <div>
-                <h3 className="text-lg font-semibold mb-2">How can I help you?</h3>
+                <h3 className="text-lg font-semibold mb-2">{t('chat.assistant.helpPrompt')}</h3>
                 <p className="text-sm text-muted-foreground max-w-md">
-                  Describe your cybercrime issue and I'll provide step-by-step guidance on how to
-                  report it officially.
+                  {t('chat.assistant.description')}
                 </p>
               </div>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-3 max-w-2xl">
                 <button
-                  onClick={() => sendMessage('I lost money in a UPI scam')}
+                  onClick={() => sendMessage(t('chat.suggestions.upiScam'))}
                   className="p-3 text-left text-sm border rounded-lg hover:bg-accent transition-colors"
                 >
-                  💸 I lost money in a UPI scam
+                  💸 {t('chat.suggestions.upiScam')}
                 </button>
                 <button
-                  onClick={() => sendMessage('Someone created a fake profile using my photos')}
+                  onClick={() => sendMessage(t('chat.suggestions.fakeProfile'))}
                   className="p-3 text-left text-sm border rounded-lg hover:bg-accent transition-colors"
                 >
-                  👤 Fake profile using my photos
+                  👤 {t('chat.suggestions.fakeProfile')}
                 </button>
                 <button
-                  onClick={() => sendMessage('My Instagram account was hacked')}
+                  onClick={() => sendMessage(t('chat.suggestions.hacked'))}
                   className="p-3 text-left text-sm border rounded-lg hover:bg-accent transition-colors"
                 >
-                  🔒 My social media was hacked
+                  🔒 {t('chat.suggestions.hacked')}
                 </button>
                 <button
-                  onClick={() => sendMessage('I am being blackmailed online')}
+                  onClick={() => sendMessage(t('chat.suggestions.blackmail'))}
                   className="p-3 text-left text-sm border rounded-lg hover:bg-accent transition-colors"
                 >
-                  ⚠️ Online blackmail/harassment
+                  ⚠️ {t('chat.suggestions.blackmail')}
                 </button>
               </div>
             </div>
@@ -109,7 +110,7 @@ export const ChatInterface: React.FC = () => {
             onClick={clearMessages}
             className="text-sm text-muted-foreground hover:text-foreground transition-colors"
           >
-            Clear conversation
+            {t('chat.assistant.clearConversation')}
           </button>
         </div>
       )}

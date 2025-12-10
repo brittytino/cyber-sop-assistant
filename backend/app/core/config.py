@@ -66,6 +66,7 @@ class Settings(BaseSettings):
     LLM_MAX_TOKENS: int = Field(default=2048, env="LLM_MAX_TOKENS")
     LLM_TOP_P: float = Field(default=0.9, env="LLM_TOP_P")
     LLM_TOP_K: int = Field(default=40, env="LLM_TOP_K")
+    LLM_REPEAT_PENALTY: float = Field(default=1.1, env="LLM_REPEAT_PENALTY")
     
     # Cache Configuration
     CACHE_ENABLED: bool = Field(default=True, env="CACHE_ENABLED")

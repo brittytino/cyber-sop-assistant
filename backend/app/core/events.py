@@ -17,13 +17,13 @@ async def startup_event():
     logger.info(f"🚀 Starting {settings.PROJECT_NAME} v{settings.VERSION}")
     logger.info("=" * 60)
     
-    # Initialize database
+    # Initialize database (optional - won't block startup)
     try:
         logger.info("📊 Initializing database...")
         await init_db()
         logger.info("✅ Database initialized")
     except Exception as e:
-        logger.error(f"❌ Database initialization failed: {e}")
+        logger.warning(f"⚠️  Database initialization failed (app will work without it): {e}")
     
     # Initialize embedding model
     try:
@@ -31,7 +31,7 @@ async def startup_event():
         await embedding_service.initialize()
         logger.info("✅ Embedding model loaded")
     except Exception as e:
-        logger.error(f"❌ Embedding model initialization failed: {e}")
+        logger.warning(f"⚠️  Embedding model initialization failed: {e}")
     
     # Initialize RAG service (ChromaDB)
     try:
@@ -39,8 +39,10 @@ async def startup_event():
         await rag_service.initialize()
         doc_count = rag_service.get_document_count()
         logger.info(f"✅ Vector database initialized ({doc_count} documents)")
+        if doc_count == 0:
+            logger.warning("⚠️  No documents in vector database. Run populate_cybercrime_data.py to add data.")
     except Exception as e:
-        logger.error(f"❌ Vector database initialization failed: {e}")
+        logger.warning(f"⚠️  Vector database initialization failed: {e}")
     
     # Check Ollama connection
     try:

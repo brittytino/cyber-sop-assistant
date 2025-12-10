@@ -40,11 +40,22 @@ export function useChatMessages() {
           include_sources: true,
         })
 
+        // Build summary from response
+        const summary = [
+          `Crime Type: ${response.crime_type || 'General Guidance'}`,
+          '',
+          response.immediate_actions.length > 0 ? 'Immediate Actions:' : '',
+          ...response.immediate_actions.map((action, i) => `${i + 1}. ${action}`),
+          '',
+          response.reporting_steps.length > 0 ? 'Reporting Steps:' : '',
+          ...response.reporting_steps.map((step, i) => `${i + 1}. ${step}`),
+        ].filter(Boolean).join('\n')
+
         // Add assistant message
         const assistantMessage: Message = {
           id: response.request_id,
           type: 'assistant',
-          content: 'Response received',
+          content: summary || 'Response processed successfully',
           timestamp: new Date(response.timestamp),
           response,
         }

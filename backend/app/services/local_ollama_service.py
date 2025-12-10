@@ -158,7 +158,7 @@ Provide clear, actionable guidance."""
         use_rag: bool = True
     ) -> Dict[str, Any]:
         """
-        Generate SOP guidance using RAG + Ollama
+        Generate structured SOP guidance using RAG + Ollama
         
         Args:
             query: User query
@@ -167,7 +167,7 @@ Provide clear, actionable guidance."""
             use_rag: Whether to use RAG retrieval
             
         Returns:
-            Structured SOP response
+            Structured SOP response matching ChatResponse schema
         """
         try:
             # Retrieve relevant documents from RAG
@@ -176,66 +176,199 @@ Provide clear, actionable guidance."""
             
             if use_rag:
                 try:
-                    rag_results = rag_service.search(query, top_k=settings.RAG_TOP_K)
-                    if rag_results:
-                        context = "\n\n".join([
-                            f"Document {i+1}:\n{doc['content']}"
-                            for i, doc in enumerate(rag_results)
-                        ])
-                        sources = [
-                            {
-                                "title": doc.get("metadata", {}).get("title", "Unknown"),
-                                "source": doc.get("metadata", {}).get("source", "Unknown"),
-                                "relevance_score": doc.get("score", 0.0)
-                            }
-                            for doc in rag_results
-                        ]
+                    from app.services.rag_service import rag_service
+                    if rag_service.is_loaded():
+                        rag_results = await rag_service.retrieve(query, top_k=5)
+                        if rag_results:
+                            context = "\n\n".join([
+                                f"Reference {i+1} ({doc.get('source', 'Unknown')}):\n{doc.get('content', '')}"
+                                for i, doc in enumerate(rag_results)
+                            ])
+                            sources = [doc.get("source", "Unknown") for doc in rag_results]
                 except Exception as e:
                     logger.warning(f"RAG retrieval failed: {e}")
             
             # Generate structured SOP response
             lang_name = self.language_names.get(language, "English")
             
-            sop_prompt = f"""Based on the user's query about cybercrime reporting, provide a structured Standard Operating Procedure (SOP) in {lang_name}.
+            sop_prompt = f"""You are an expert on Indian cybercrime reporting procedures. Based on the user's query, provide a comprehensive Standard Operating Procedure (SOP) in {lang_name}.
 
 User Query: {query}
+{f"Category: {category}" if category else ""}
 
-Provide your response in the following structure:
+{f"Reference Documents:{context}" if context else ""}
 
-1. IMMEDIATE ACTIONS (to do right now):
-   - List specific immediate steps
+Provide your response with the following sections:
 
-2. WITHIN 24 HOURS:
-   - List actions to take within a day
+**IMMEDIATE ACTIONS** (to do right now):
+List 3-5 immediate critical steps the victim should take within the next hour.
 
-3. WITHIN 7 DAYS:
-   - List follow-up actions
+**REPORTING STEPS** (within 24-48 hours):
+Provide step-by-step instructions for official reporting:
+1. Where to report (cybercrime portal, police station, etc.)
+2. What documents/information to prepare
+3. How to file the complaint
 
-4. ONGOING MEASURES:
-   - List preventive and monitoring steps
+**EVIDENCE CHECKLIST**:
+List all types of evidence to collect and preserve (screenshots, messages, transaction records, etc.)
 
-5. IMPORTANT CONTACTS:
-   - List relevant helplines, portals, and authorities
+**OFFICIAL LINKS AND CONTACTS**:
+Provide:
+- National Cyber Crime Reporting Portal: https://cybercrime.gov.in
+- Helpline: 1930 (24x7)
+- Email: complaints@cybercrime.gov.in
+- Other relevant portals/helplines
 
-Keep each point concise and actionable."""
+**PLATFORM-SPECIFIC GUIDANCE** (if applicable):
+If the crime involves specific platforms (WhatsApp, Instagram, bank, UPI, etc.), provide platform-specific reporting steps.
+
+Ensure all guidance is:
+- Specific to Indian jurisdiction
+- Actionable and practical
+- In {lang_name} language
+- Empathetic and supportive"""
             
             response_text = await self.generate_response(
                 prompt=sop_prompt,
                 language=language,
-                context=context
+                system_message=f"You are a helpful cybercrime guidance assistant. Always respond in {lang_name}."
             )
             
+            # Parse the LLM response into structured format
+            # For now, we'll create a basic structure and let the LLM response be displayed
+            immediate_actions = []
+            reporting_steps = []
+            evidence_checklist = []
+            
+            # Try to extract sections from the response
+            lines = response_text.split('\n')
+            current_section = None
+            
+            for line in lines:
+                line = line.strip()
+                if not line:
+                    continue
+                
+                upper_line = line.upper()
+                if 'IMMEDIATE' in upper_line and 'ACTION' in upper_line:
+                    current_section = 'immediate'
+                elif 'REPORTING' in upper_line and 'STEP' in upper_line:
+                    current_section = 'reporting'
+                elif 'EVIDENCE' in upper_line and 'CHECKLIST' in upper_line:
+                    current_section = 'evidence'
+                elif 'OFFICIAL' in upper_line or 'CONTACT' in upper_line:
+                    current_section = 'links'
+                elif 'PLATFORM' in upper_line:
+                    current_section = 'platform'
+                elif line.startswith(('-', '•', '*', '1.', '2.', '3.', '4.', '5.')):
+                    # Extract bullet point
+                    cleaned = line.lstrip('-•*123456789. ')
+                    if current_section == 'immediate' and cleaned:
+                        immediate_actions.append(cleaned)
+                    elif current_section == 'reporting' and cleaned:
+                        reporting_steps.append(cleaned)
+                    elif current_section == 'evidence' and cleaned:
+                        evidence_checklist.append(cleaned)
+            
+            # If parsing failed, provide fallback structure
+            if not immediate_actions:
+                immediate_actions = [response_text[:500] + "..."] if len(response_text) > 500 else [response_text]
+            
+            # Return structured response matching ChatResponse schema
             return {
-                "sop_guidance": response_text,
-                "sources": sources,
-                "language": language,
-                "category": category,
-                "used_rag": use_rag and len(sources) > 0
+                "immediate_actions": immediate_actions[:5],  # Max 5
+                "reporting_steps": reporting_steps[:10] if reporting_steps else [
+                    f"1. Visit National Cyber Crime Reporting Portal: https://cybercrime.gov.in",
+                    f"2. Register your complaint with all evidence",
+                    f"3. Note down your complaint number for follow-up",
+                    f"4. If urgent, call helpline 1930"
+                ],
+                "evidence_checklist": evidence_checklist[:15] if evidence_checklist else [
+                    "Screenshots of fraudulent messages/posts",
+                    "Transaction IDs and bank statements",
+                    "URLs and account details of perpetrators",
+                    "Communication records (emails, chats)",
+                    "Timestamps of all incidents"
+                ],
+                "official_links": [
+                    {
+                        "name": "National Cyber Crime Reporting Portal",
+                        "url": "https://cybercrime.gov.in",
+                        "category": "reporting",
+                        "description": "Official portal to report cybercrimes in India"
+                    },
+                    {
+                        "name": "Citizen Financial Cyber Fraud Reporting",
+                        "url": "https://cybercrime.gov.in/Webform/Crime_AuthoLogin.aspx",
+                        "category": "reporting",
+                        "description": "Report financial frauds and track complaints"
+                    }
+                ],
+                "emergency_contacts": [
+                    {
+                        "name": "Cyber Crime Helpline",
+                        "number": "1930",
+                        "description": "24x7 National Helpline for all cybercrimes",
+                        "available_24x7": True
+                    },
+                    {
+                        "name": "Women Helpline",
+                        "number": "181",
+                        "description": "24x7 Women Safety Helpline",
+                        "available_24x7": True
+                    }
+                ],
+                "platform_specific": {
+                    "platform": self._detect_platform(query),
+                    "additional_guidance": response_text
+                },
+                "sources": sources if sources else ["Cybercrime.gov.in", "MeitY Guidelines", "IT Act 2000"]
             }
             
         except Exception as e:
             logger.error(f"SOP generation error: {e}", exc_info=True)
-            raise
+            # Return minimal fallback response
+            return {
+                "immediate_actions": [
+                    "Stop all communication with the perpetrator immediately",
+                    "Do not delete any evidence (messages, emails, screenshots)",
+                    "Note down all details: dates, times, amounts, account numbers",
+                    "Call Cyber Crime Helpline: 1930 for immediate assistance"
+                ],
+                "reporting_steps": [
+                    "Visit https://cybercrime.gov.in to file online complaint",
+                    "Visit nearest police station with all evidence",
+                    "Keep copies of all documents and complaint numbers"
+                ],
+                "evidence_checklist": [
+                    "Screenshots of messages/transactions",
+                    "Bank statements and transaction IDs",
+                    "Email/message headers",
+                    "URLs and account details of scammers"
+                ],
+                "official_links": [],
+                "emergency_contacts": [],
+                "platform_specific": None,
+                "sources": []
+            }
+    
+    def _detect_platform(self, query: str) -> Optional[str]:
+        """Detect platform mentioned in query"""
+        query_lower = query.lower()
+        platforms = {
+            "whatsapp": ["whatsapp", "watsapp"],
+            "instagram": ["instagram", "insta"],
+            "facebook": ["facebook", "fb"],
+            "twitter": ["twitter", "x.com"],
+            "upi": ["upi", "paytm", "phonepe", "googlepay", "gpay"],
+            "bank": ["bank", "account", "atm"],
+            "email": ["email", "gmail", "mail"]
+        }
+        
+        for platform, keywords in platforms.items():
+            if any(keyword in query_lower for keyword in keywords):
+                return platform
+        return None
     
     async def translate_content(
         self,

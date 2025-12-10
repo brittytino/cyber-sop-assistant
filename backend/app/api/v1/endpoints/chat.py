@@ -1,6 +1,6 @@
 """
 Chat Endpoint - Main Conversational Interface
-ENHANCED with production-ready features
+ENHANCED with Local Ollama + RAG for Multilingual Cybercrime Guidance
 """
 from fastapi import APIRouter, Depends, HTTPException, status
 from datetime import datetime
@@ -9,7 +9,7 @@ import asyncio
 
 from app.models.schemas import ChatRequest, ChatResponse, OfficialLink, EmergencyContact
 from app.models.enums import CrimeType
-from app.services.llm_service import llm_service
+from app.services.local_ollama_service import local_ollama_service
 from app.services.rag_service import rag_service
 from app.services.cache_service import cache_service
 from app.services.classifier_service import classifier_service
@@ -69,11 +69,12 @@ async def chat(
         )
         logger.info(f"[{request_id}] Retrieved {len(context_docs)} documents")
         
-        # Generate response using LLM
-        llm_response = await llm_service.generate_sop(
+        # Generate response using Local Ollama with RAG
+        llm_response = await local_ollama_service.generate_sop_response(
             query=request.query,
-            context_docs=context_docs,
-            language=request.language.value
+            language=request.language.value,
+            category=crime_type,
+            use_rag=True
         )
         
         # Build structured response

@@ -1,9 +1,13 @@
 import { Link } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 import { Shield, MessageSquare, FileText, Info, BookOpen, ExternalLink, AlertCircle } from 'lucide-react'
 import { EmergencyButton } from '@/features/emergency/components/EmergencyButton'
 import DisclaimerBanner from '@/components/common/DisclaimerBanner'
+import { NearbyStations } from '@/components/NearbyStations'
 
 export default function HomePage() {
+  const { t } = useTranslation()
+  
   return (
     <div className="min-h-screen bg-gradient-to-b from-blue-50 to-white dark:from-gray-900 dark:to-gray-800">
       <DisclaimerBanner />
@@ -15,14 +19,13 @@ export default function HomePage() {
             <Shield className="h-16 w-16 md:h-20 md:w-20 text-blue-600 dark:text-blue-400" />
           </div>
           <h1 className="text-4xl md:text-6xl font-bold text-gray-900 dark:text-white mb-6">
-            Cyber SOP Assistant
+            {t('home.hero.title')}
           </h1>
           <p className="text-xl md:text-2xl text-gray-600 dark:text-gray-300 mb-8">
-            AI-Driven Cybercrime Reporting Guidance for India
+            {t('home.hero.subtitle')}
           </p>
           <p className="text-lg text-gray-700 dark:text-gray-400 mb-12 max-w-3xl mx-auto">
-            Get instant, accurate step-by-step guidance on reporting cybercrimes based on official government SOPs. 
-            Available in 8 Indian languages. 100% local processing - your data stays private.
+            {t('home.hero.description')}
           </p>
 
           {/* CTA Buttons */}
@@ -32,14 +35,14 @@ export default function HomePage() {
               className="inline-flex items-center justify-center px-8 py-4 text-lg font-semibold text-white bg-blue-600 rounded-lg hover:bg-blue-700 transition-colors shadow-lg"
             >
               <MessageSquare className="h-5 w-5 mr-2" />
-              Start Chat
+              {t('home.hero.startChat')}
             </Link>
             <Link
               to="/how-it-works"
               className="inline-flex items-center justify-center px-8 py-4 text-lg font-semibold text-blue-600 bg-white dark:bg-gray-800 dark:text-blue-400 border-2 border-blue-600 dark:border-blue-400 rounded-lg hover:bg-blue-50 dark:hover:bg-gray-700 transition-colors"
             >
               <BookOpen className="h-5 w-5 mr-2" />
-              How It Works
+              {t('home.hero.howItWorks')}
             </Link>
           </div>
 
@@ -51,74 +54,79 @@ export default function HomePage() {
           {/* Feature 1 */}
           <FeatureCard
             icon={<Shield className="h-8 w-8 text-blue-600 dark:text-blue-400" />}
-            title="30+ Crime Types"
-            description="UPI fraud, social media hacking, sextortion, phishing, SIM swap, job fraud, and more"
+            title={t('home.features.crimeTypes.title')}
+            description={t('home.features.crimeTypes.description')}
           />
           
           {/* Feature 2 */}
           <FeatureCard
             icon={<MessageSquare className="h-8 w-8 text-green-600 dark:text-green-400" />}
-            title="8 Languages"
-            description="English, Hindi, Tamil, Telugu, Bengali, Marathi, Gujarati, Kannada"
+            title={t('home.features.languages.title')}
+            description={t('home.features.languages.description')}
           />
           
           {/* Feature 3 */}
           <FeatureCard
             icon={<FileText className="h-8 w-8 text-purple-600 dark:text-purple-400" />}
-            title="Official SOPs"
-            description="Based on cybercrime.gov.in, CERT-In, RBI, MeitY guidelines"
+            title={t('home.features.officialSops.title')}
+            description={t('home.features.officialSops.description')}
           />
           
           {/* Feature 4 */}
           <FeatureCard
             icon={<AlertCircle className="h-8 w-8 text-red-600 dark:text-red-400" />}
-            title="Timeline-Based Actions"
-            description="NOW, 24H, 7D, ONGOING - Clear prioritization of steps"
+            title={t('home.features.timelineBased.title')}
+            description={t('home.features.timelineBased.description')}
           />
           
           {/* Feature 5 */}
           <FeatureCard
             icon={<ExternalLink className="h-8 w-8 text-yellow-600 dark:text-yellow-400" />}
-            title="Verified Links"
-            description="100% verified .gov.in portals, helplines, and official contacts"
+            title={t('home.features.verifiedLinks.title')}
+            description={t('home.features.verifiedLinks.description')}
           />
           
           {/* Feature 6 */}
           <FeatureCard
             icon={<Info className="h-8 w-8 text-indigo-600 dark:text-indigo-400" />}
-            title="100% Private"
-            description="All processing is local. No data sent to external servers."
+            title={t('home.features.privacy.title')}
+            description={t('home.features.privacy.description')}
           />
         </div>
 
         {/* Supported Crime Types */}
         <div className="mt-20 max-w-6xl mx-auto">
           <h2 className="text-3xl font-bold text-center text-gray-900 dark:text-white mb-8">
-            Supported Crime Types
+            {t('home.crimeTypes.title')}
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-            <CrimeTypeChip>Financial Fraud (10 types)</CrimeTypeChip>
-            <CrimeTypeChip>Social Media (7 types)</CrimeTypeChip>
-            <CrimeTypeChip>Women/Child Safety (6 types)</CrimeTypeChip>
-            <CrimeTypeChip>Cyber Attacks (6 types)</CrimeTypeChip>
-            <CrimeTypeChip>SIM Swap Fraud</CrimeTypeChip>
-            <CrimeTypeChip>Online Job Fraud</CrimeTypeChip>
-            <CrimeTypeChip>Fake Apps</CrimeTypeChip>
-            <CrimeTypeChip>Email Hacking</CrimeTypeChip>
+            <CrimeTypeChip>{t('home.crimeTypes.financial')}</CrimeTypeChip>
+            <CrimeTypeChip>{t('home.crimeTypes.social')}</CrimeTypeChip>
+            <CrimeTypeChip>{t('home.crimeTypes.womenChild')}</CrimeTypeChip>
+            <CrimeTypeChip>{t('home.crimeTypes.attacks')}</CrimeTypeChip>
+            <CrimeTypeChip>{t('home.crimeTypes.simSwap')}</CrimeTypeChip>
+            <CrimeTypeChip>{t('home.crimeTypes.jobFraud')}</CrimeTypeChip>
+            <CrimeTypeChip>{t('home.crimeTypes.fakeApps')}</CrimeTypeChip>
+            <CrimeTypeChip>{t('home.crimeTypes.emailHacking')}</CrimeTypeChip>
           </div>
         </div>
 
         {/* Emergency Contacts */}
         <div className="mt-20 bg-red-50 dark:bg-red-900/20 rounded-lg p-8 max-w-4xl mx-auto border border-red-200 dark:border-red-800">
           <h3 className="text-2xl font-bold text-red-900 dark:text-red-200 mb-4 text-center">
-            Emergency Helplines
+            {t('home.emergency.title')}
           </h3>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <EmergencyContact title="Financial Fraud" number="1930" />
-            <EmergencyContact title="Women's Helpline" number="181" />
-            <EmergencyContact title="Child Helpline" number="1098" />
-            <EmergencyContact title="Emergency" number="112" />
+            <EmergencyContact title={t('home.emergency.financial')} number="1930" />
+            <EmergencyContact title={t('home.emergency.women')} number="181" />
+            <EmergencyContact title={t('home.emergency.child')} number="1098" />
+            <EmergencyContact title={t('home.emergency.emergency')} number="112" />
           </div>
+        </div>
+
+        {/* Nearby Stations */}
+        <div className="mt-12 max-w-4xl mx-auto">
+          <NearbyStations />
         </div>
       </div>
     </div>

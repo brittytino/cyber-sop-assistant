@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 import { Shield, Menu, X, Home, MessageSquare, FileText, Info, BookOpen, ExternalLink } from 'lucide-react'
 import LanguageSelector from '@/components/common/LanguageSelector'
 import { useTheme } from '@/context/ThemeContext'
@@ -9,17 +10,18 @@ interface MainLayoutProps {
 }
 
 export const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
+  const { t } = useTranslation()
   const [sidebarOpen, setSidebarOpen] = useState(false)
   const location = useLocation()
   const { theme, toggleTheme } = useTheme()
 
   const navigation = [
-    { name: 'Home', href: '/', icon: Home },
-    { name: 'Chat', href: '/chat', icon: MessageSquare },
+    { name: t('nav.home'), href: '/', icon: Home },
+    { name: t('nav.chat'), href: '/chat', icon: MessageSquare },
     { name: 'Complaints', href: '/complaints', icon: FileText },
     { name: 'How It Works', href: '/how-it-works', icon: BookOpen },
     { name: 'Resources', href: '/resources', icon: ExternalLink },
-    { name: 'About', href: '/about', icon: Info },
+    { name: t('nav.about'), href: '/about', icon: Info },
   ]
 
   const isActive = (path: string) => location.pathname === path
@@ -34,7 +36,7 @@ export const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
             <Link to="/" className="flex items-center gap-2">
               <Shield className="h-8 w-8 text-blue-600 dark:text-blue-400" />
               <span className="text-xl font-bold text-gray-900 dark:text-white hidden sm:block">
-                Cyber SOP Assistant
+                {t('app.title')}
               </span>
               <span className="text-xl font-bold text-gray-900 dark:text-white sm:hidden">
                 CSA

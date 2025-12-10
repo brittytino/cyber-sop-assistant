@@ -60,8 +60,8 @@ Respond in {lang_name} language with a valid JSON structure containing:
   "immediate_actions": ["action1", "action2"],
   "reporting_steps": ["step1", "step2"],
   "evidence_checklist": ["item1", "item2"],
-  "official_links": [{{"name": "Portal Name", "url": "https://...", "category": "reporting"}}],
-  "emergency_contacts": [{{"name": "Helpline Name", "number": "1930", "description": "24x7 service"}}],
+  "official_links": [{{"name": "Portal Name", "url": "https://...", "category": "reporting", "description": "Optional description"}}],
+  "emergency_contacts": [{{"name": "Helpline Name", "number": "1930", "description": "24x7 service", "available_24x7": true}}],
   "platform_specific": {{}}
 }}
 

@@ -24,7 +24,20 @@
     "typing": "AI is typing...",
     "error": "Failed to get response. Please try again.",
     "empty": "Start a conversation by asking a question",
-    "newChat": "New Chat"
+    "newChat": "New Chat",
+    "assistant": {
+      "title": "AI Cyber Crime Assistant",
+      "subtitle": "Get instant guidance on reporting cybercrimes in India",
+      "helpPrompt": "How can I help you?",
+      "description": "Describe your cybercrime issue and I'll provide step-by-step guidance on how to report it officially.",
+      "clearConversation": "Clear conversation"
+    },
+    "suggestions": {
+      "upiScam": "I lost money in a UPI scam",
+      "fakeProfile": "Someone created a fake profile using my photos",
+      "hacked": "My social media was hacked",
+      "blackmail": "Online blackmail/harassment"
+    }
   },
   "categories": {
     "title": "Crime Categories",
@@ -107,5 +120,59 @@
     "meity": "MeitY",
     "rbi": "RBI Complaint Portal",
     "local": "Local Police Station"
+  },
+  "home": {
+    "hero": {
+      "title": "Cyber SOP Assistant",
+      "subtitle": "AI-Driven Cybercrime Reporting Guidance for India",
+      "description": "Get instant, accurate step-by-step guidance on reporting cybercrimes based on official government SOPs. Available in 8 Indian languages. 100% local processing - your data stays private.",
+      "startChat": "Start Chat",
+      "howItWorks": "How It Works"
+    },
+    "features": {
+      "title": "Features",
+      "crimeTypes": {
+        "title": "30+ Crime Types",
+        "description": "UPI fraud, social media hacking, sextortion, phishing, SIM swap, job fraud, and more"
+      },
+      "languages": {
+        "title": "8 Languages",
+        "description": "English, Hindi, Tamil, Telugu, Bengali, Marathi, Gujarati, Kannada"
+      },
+      "officialSops": {
+        "title": "Official SOPs",
+        "description": "Based on cybercrime.gov.in, CERT-In, RBI, MeitY guidelines"
+      },
+      "timelineBased": {
+        "title": "Timeline-Based Actions",
+        "description": "NOW, 24H, 7D, ONGOING - Clear prioritization of steps"
+      },
+      "verifiedLinks": {
+        "title": "Verified Links",
+        "description": "100% verified .gov.in portals, helplines, and official contacts"
+      },
+      "privacy": {
+        "title": "100% Private",
+        "description": "All processing is local. No data sent to external servers."
+      }
+    },
+    "crimeTypes": {
+      "title": "Supported Crime Types",
+      "financial": "Financial Fraud (10 types)",
+      "social": "Social Media (7 types)",
+      "womenChild": "Women/Child Safety (6 types)",
+      "attacks": "Cyber Attacks (6 types)",
+      "simSwap": "SIM Swap Fraud",
+      "jobFraud": "Online Job Fraud",
+      "fakeApps": "Fake Apps",
+      "emailHacking": "Email Hacking"
+    },
+    "emergency": {
+      "title": "Emergency Helplines",
+      "financial": "Financial Fraud",
+      "women": "Women's Helpline",
+      "child": "Child Helpline",
+      "emergency": "Emergency"
+    }
   }
 }
