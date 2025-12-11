@@ -58,28 +58,40 @@ Get instant, accurate step-by-step guidance on reporting cybercrimes based on 10
 
 ---
 
-## 🚀 Quick Start (Windows)
+## 🚀 Quick Start
 
 ### Prerequisites
 1. **Install Ollama**: Download from [https://ollama.ai](https://ollama.ai)
 2. **Install Python 3.11+**: Download from [python.org](https://python.org)
 3. **Install Node.js 18+**: Download from [nodejs.org](https://nodejs.org)
 
-### Step 1: Download and Setup
-```powershell
-# Clone the repository
+### One-Command Setup
+
+**Windows:**
+```cmd
+# Clone and start everything
 git clone https://github.com/brittytino/cyber-sop-assistant.git
 cd cyber-sop-assistant
-
-# Pull the Mistral model (one-time, ~4GB download)
-ollama pull mistral:7b-instruct
+.\start.bat
 ```
 
-### Step 2: Start Backend
-```powershell
-# Double-click this file OR run in terminal:
-.\START_BACKEND_SIMPLE.bat
+**Linux/Mac:**
+```bash
+# Clone and start everything
+git clone https://github.com/brittytino/cyber-sop-assistant.git
+cd cyber-sop-assistant
+chmod +x start.sh
+./start.sh
 ```
+
+The script will automatically:
+- ✅ Check Ollama installation
+- ✅ Download Mistral model if needed
+- ✅ Create Python virtual environment
+- ✅ Install all dependencies
+- ✅ Populate the knowledge base
+- ✅ Start backend server (http://localhost:8000)
+- ✅ Start frontend server (http://localhost:3000)
 
 Wait for these messages:
 ```
@@ -88,14 +100,6 @@ Wait for these messages:
 ✅ Vector database initialized (7 documents)
 ✅ Ollama connected (model: mistral:7b-instruct)
 🚀 Cyber SOP Assistant started successfully
-```
-
-### Step 3: Start Frontend
-```powershell
-# In a new terminal
-cd frontend
-npm install
-npm run dev
 ```
 
 ### Step 4: Open Browser
