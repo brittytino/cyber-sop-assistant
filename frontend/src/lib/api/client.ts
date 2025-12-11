@@ -27,6 +27,12 @@ class APIClient {
     // Request interceptor
     this.client.interceptors.request.use(
       (config: InternalAxiosRequestConfig) => {
+        // Add authentication token if available
+        const token = localStorage.getItem('access_token')
+        if (token) {
+          config.headers.Authorization = `Bearer ${token}`
+        }
+        
         // Add request ID for tracking
         config.headers['X-Request-ID'] = this.generateRequestId()
         
@@ -91,8 +97,8 @@ class APIClient {
     return `${Date.now()}-${Math.random().toString(36).substr(2, 9)}`
   }
 
-  async get<T>(url: string, params?: any): Promise<T> {
-    const response = await this.client.get<T>(url, { params })
+  async get<T>(url: string, config?: any): Promise<T> {
+    const response = await this.client.get<T>(url, config)
     return response.data
   }
 
@@ -103,6 +109,11 @@ class APIClient {
 
   async put<T>(url: string, data?: any): Promise<T> {
     const response = await this.client.put<T>(url, data)
+    return response.data
+  }
+
+  async patch<T>(url: string, data?: any): Promise<T> {
+    const response = await this.client.patch<T>(url, data)
     return response.data
   }
 
