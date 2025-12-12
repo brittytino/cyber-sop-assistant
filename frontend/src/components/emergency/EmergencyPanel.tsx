@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
-import { useNavigate } from 'react-router-dom'
 import { emergencyApi, type EmergencyPanel as EmergencyPanelType } from '@/services/api/emergencyApi'
 import { Button } from '@/components/ui/button'
 import { Phone, Shield, Heart, Users, Lock, AlertTriangle, ExternalLink, Loader2 } from 'lucide-react'
@@ -16,7 +15,6 @@ export const EmergencyPanel: React.FC<EmergencyPanelProps> = ({
   onActionClick,
 }) => {
   const { t, i18n } = useTranslation()
-  const navigate = useNavigate()
   const [panel, setPanel] = useState<EmergencyPanelType | null>(null)
   const [isLoading, setIsLoading] = useState(true)
 

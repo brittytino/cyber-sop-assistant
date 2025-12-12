@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom'
 import { Button } from '@/components/ui/button'
 import { useAuth } from '@/context/AuthContext'
 import { automationApi } from '@/services/api/automationApi'
-import { Zap, Lock, CheckCircle } from 'lucide-react'
+import { Zap, Lock } from 'lucide-react'
 import { toast } from 'sonner'
 
 interface AutoFileButtonProps {
@@ -69,7 +69,7 @@ export const AutoFileButton: React.FC<AutoFileButtonProps> = ({
         user_id: user.user_id,
         portal,
         complaint_data: complaintData,
-        evidence_files: evidenceFiles,
+        evidence_files: evidenceFiles?.map(f => f.file_url),
         user_credentials: {
           phone: user.phone || '',
           email: user.email,

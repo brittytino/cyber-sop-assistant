@@ -76,18 +76,6 @@ const TabsContext = React.createContext<{
   onValueChange: (value: string) => void
 } | null>(null)
 
-const TabsProvider = Tabs as React.ForwardRefExoticComponent<
-  React.HTMLAttributes<HTMLDivElement> & {
-    value: string
-    onValueChange: (value: string) => void
-  } & React.RefAttributes<HTMLDivElement>
-> & {
-  (props: React.HTMLAttributes<HTMLDivElement> & {
-    value: string
-    onValueChange: (value: string) => void
-  }): JSX.Element
-}
-
 const TabsComponent = React.forwardRef<
   HTMLDivElement,
   React.HTMLAttributes<HTMLDivElement> & { value: string; onValueChange: (value: string) => void }

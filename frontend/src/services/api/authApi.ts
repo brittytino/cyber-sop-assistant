@@ -3,7 +3,7 @@
  * Handles all authentication-related API calls
  */
 import { apiClient } from '@/lib/api/client'
-import type { AuthResponse, OTPResponse, SessionResponse, UserProfile } from '@/types/auth.types'
+import type { AuthResponse, OTPResponse, UserProfile } from '@/types/auth.types'
 
 export interface LoginRequest {
   identifier: string // phone or email

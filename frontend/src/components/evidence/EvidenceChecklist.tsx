@@ -2,9 +2,8 @@ import React, { useState, useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
 import { progressApi, type EvidenceChecklist as EvidenceChecklistType } from '@/services/api/progressApi'
 import { Checkbox } from '@/components/ui/checkbox'
-import { Button } from '@/components/ui/button'
 import { Progress } from '@/components/ui/progress'
-import { FileText, Image, FileCheck, MessageSquare, DollarSign, Upload, CheckCircle, Circle } from 'lucide-react'
+import { FileText, Image, FileCheck, MessageSquare, DollarSign, CheckCircle } from 'lucide-react'
 import { toast } from 'sonner'
 
 interface EvidenceChecklistProps {
@@ -166,9 +165,8 @@ const EvidenceItem: React.FC<EvidenceItemProps> = ({ item, onToggle, getIcon }) 
     >
       <div className="flex-shrink-0 mt-0.5">
         <Checkbox
-          id={item.id}
           checked={item.is_completed}
-          onCheckedChange={(checked) => onToggle(item.id, !!checked)}
+          onChange={(e) => onToggle(item.id, e.target.checked)}
         />
       </div>
 

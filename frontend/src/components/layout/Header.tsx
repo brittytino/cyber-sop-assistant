@@ -2,7 +2,6 @@ import React from 'react'
 import { useLanguage } from '@/context/LanguageContext'
 import { useTheme } from '@/context/ThemeContext'
 import { Button } from '@/components/ui/button'
-import { Select } from '@/components/ui/select'
 import { Moon, Sun, Shield } from 'lucide-react'
 
 export const Header: React.FC = () => {
@@ -26,12 +25,17 @@ export const Header: React.FC = () => {
         {/* Controls */}
         <div className="flex items-center space-x-4">
           {/* Language Selector */}
-          <Select
+          <select
             value={language}
             onChange={(e) => setLanguage(e.target.value as any)}
-            options={languageSelectOptions}
-            className="w-32"
-          />
+            className="w-32 h-10 rounded-md border border-input bg-background px-3 text-sm"
+          >
+            {languageSelectOptions.map((option) => (
+              <option key={option.value} value={option.value}>
+                {option.label}
+              </option>
+            ))}
+          </select>
 
           {/* Theme Toggle */}
           <Button

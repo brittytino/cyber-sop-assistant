@@ -1,6 +1,9 @@
 import { apiClient } from '@/lib/api/client'
 import type { AutomatedFilingRequest, FilingResponse, AutomationStatus, PortalInfo } from '@/types/auth.types'
 
+// Re-export for convenience
+export type { AutomationStatus }
+
 // Additional Types
 export interface FilingHistory {
   filing_id: string
@@ -10,6 +13,13 @@ export interface FilingHistory {
   completed_at?: string
   portal_reference?: string
   complaint_category: string
+}
+
+export interface FilingStatusUpdate {
+  status: AutomationStatus['status']
+  message?: string
+  progress?: number
+  portal_reference?: string
 }
 
 // API Methods

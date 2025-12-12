@@ -106,13 +106,8 @@ export const StationFinder: React.FC<StationFinderProps> = ({
 
     try {
       const data = await stationsApi.getByCity(city)
-      setResults({
-        user_location: null,
-        stations: data,
-        cyber_cells: data.filter((s) => s.handles_cybercrime),
-        nearest_cyber_cell: data.find((s) => s.handles_cybercrime) || null,
-      })
-      toast.success(t('stations.found', { count: data.length }))
+      setResults(data)
+      toast.success(t('stations.found', { count: data.stations.length }))
     } catch (error) {
       console.error('City search error:', error)
       toast.error(t('stations.searchError'))
@@ -121,8 +116,8 @@ export const StationFinder: React.FC<StationFinderProps> = ({
     }
   }
 
-  const displayedStations = showCyberCellsOnly
-    ? results?.cyber_cells || []
+  const displayedStations = showCyberCellsOnly && results?.cyber_cells 
+    ? results.cyber_cells 
     : results?.stations || []
 
   return (
@@ -252,10 +247,10 @@ export const StationFinder: React.FC<StationFinderProps> = ({
             </div>
           ) : (
             <div className="grid gap-4">
-              {displayedStations.map((station) => (
+              {displayedStations.map((result) => (
                 <StationCard
-                  key={station.station_id}
-                  station={station}
+                  key={result.station.station_id}
+                  station={result.station}
                   onSelect={onStationSelect}
                 />
               ))}

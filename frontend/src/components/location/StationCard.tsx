@@ -2,18 +2,16 @@ import React from 'react'
 import { useTranslation } from 'react-i18next'
 import { type PoliceStation } from '@/services/api/stationsApi'
 import { Button } from '@/components/ui/button'
-import { MapPin, Phone, ExternalLink, Shield, Clock, Navigation } from 'lucide-react'
+import { MapPin, Phone, ExternalLink, Shield, Clock } from 'lucide-react'
 
 interface StationCardProps {
   station: PoliceStation
   onSelect?: (station: PoliceStation) => void
-  showDistance?: boolean
 }
 
 export const StationCard: React.FC<StationCardProps> = ({
   station,
   onSelect,
-  showDistance = true,
 }) => {
   const { t } = useTranslation()
 
@@ -22,14 +20,12 @@ export const StationCard: React.FC<StationCardProps> = ({
   }
 
   const handleDirections = () => {
-    const url = `https://www.google.com/maps/dir/?api=1&destination=${station.latitude},${station.longitude}`
-    window.open(url, '_blank', 'noopener,noreferrer')
-  }
-
-  const formatDistance = (km: number | undefined) => {
-    if (!km) return null
-    if (km < 1) return `${Math.round(km * 1000)}m`
-    return `${km.toFixed(1)} km`
+    if (station.coordinates) {
+      const url = `https://www.google.com/maps/dir/?api=1&destination=${station.coordinates.latitude},${station.coordinates.longitude}`
+      window.open(url, '_blank', 'noopener,noreferrer')
+    } else if (station.google_maps_url) {
+      window.open(station.google_maps_url, '_blank', 'noopener,noreferrer')
+    }
   }
 
   return (
@@ -77,18 +73,7 @@ export const StationCard: React.FC<StationCardProps> = ({
             {station.pincode && ` - ${station.pincode}`}
           </p>
 
-          {/* Distance */}
-          {showDistance && station.distance_km && (
-            <div className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400 mb-3">
-              <Navigation className="w-4 h-4" />
-              <span>
-                {formatDistance(station.distance_km)} {t('stations.away')}
-              </span>
-              {station.estimated_time && (
-                <span className="text-gray-500">• {station.estimated_time}</span>
-              )}
-            </div>
-          )}
+          {/* Distance - shown when available from parent component */}
 
           {/* Phone Numbers */}
           {station.phone_numbers && station.phone_numbers.length > 0 && (
@@ -130,12 +115,11 @@ export const StationCard: React.FC<StationCardProps> = ({
         </div>
       </div>
 
-      {/* Operating Hours */}
-      {station.operating_hours && !station.open_24x7 && (
+      {/* Status */}
+      {station.status && station.status !== 'active' && (
         <div className="mt-3 pt-3 border-t border-gray-200 dark:border-gray-700">
           <p className="text-xs text-gray-600 dark:text-gray-400">
-            <Clock className="w-3 h-3 inline mr-1" />
-            {station.operating_hours}
+            {t('stations.status')}: {station.status}
           </p>
         </div>
       )}

@@ -59,6 +59,8 @@ export interface AutomationStatus {
   error_message?: string
   portal_reference?: string
   otp_required?: boolean
+  requires_otp?: boolean
+  progress_percentage?: number
 }
 
 export interface PortalInfo {

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useParams, useNavigate } from 'react-router-dom'
-import { automationApi, type FilingStatusUpdate, type AutomationStatus } from '@/services/api/automationApi'
+import { automationApi, type AutomationStatus } from '@/services/api/automationApi'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
@@ -24,7 +24,7 @@ export const FilingStatus: React.FC = () => {
   const { t } = useTranslation()
   const { filingId } = useParams<{ filingId: string }>()
   const navigate = useNavigate()
-  const [status, setStatus] = useState<FilingStatusUpdate | null>(null)
+  const [status, setStatus] = useState<AutomationStatus | null>(null)
   const [isLoading, setIsLoading] = useState(true)
   const [otp, setOtp] = useState('')
   const [isSubmittingOTP, setIsSubmittingOTP] = useState(false)
@@ -38,16 +38,21 @@ export const FilingStatus: React.FC = () => {
     loadStatus()
 
     // Start polling for updates
-    const cleanup = automationApi.pollStatus(
+    let cleanup: (() => void) | undefined
+    automationApi.pollStatus(
       filingId,
       (update) => {
         setStatus(update)
         setIsLoading(false)
       },
       3000
-    )
+    ).then((stopPolling) => {
+      cleanup = stopPolling
+    })
 
-    return cleanup
+    return () => {
+      if (cleanup) cleanup()
+    }
   }, [filingId])
 
   const loadStatus = async () => {
@@ -136,7 +141,7 @@ export const FilingStatus: React.FC = () => {
               {t('automation.filingId')}: <span className="font-mono">{filingId}</span>
             </p>
           </div>
-          <StatusBadge status={status.status} />
+          <StatusBadge status={status?.status || 'PENDING'} />
         </div>
 
         {/* Progress Bar */}
@@ -247,10 +252,10 @@ export const FilingStatus: React.FC = () => {
 }
 
 // Status Badge Component
-const StatusBadge: React.FC<{ status: AutomationStatus }> = ({ status }) => {
+const StatusBadge: React.FC<{ status: string }> = ({ status }) => {
   const { t } = useTranslation()
 
-  const statusConfig: Record<AutomationStatus, { color: string; icon: React.ReactNode; label: string }> = {
+  const statusConfig: Record<string, { color: string; icon: React.ReactNode; label: string }> = {
     PENDING: { color: 'bg-gray-100 text-gray-800', icon: <Clock className="w-4 h-4" />, label: t('automation.status.pending') },
     QUEUED: { color: 'bg-blue-100 text-blue-800', icon: <Clock className="w-4 h-4" />, label: t('automation.status.queued') },
     IN_PROGRESS: { color: 'bg-yellow-100 text-yellow-800', icon: <Loader2 className="w-4 h-4 animate-spin" />, label: t('automation.status.inProgress') },
@@ -274,7 +279,7 @@ const StatusBadge: React.FC<{ status: AutomationStatus }> = ({ status }) => {
 }
 
 // Timeline Component
-const StatusTimeline: React.FC<{ status: AutomationStatus }> = ({ status }) => {
+const StatusTimeline: React.FC<{ status: string }> = ({ status }) => {
   const { t } = useTranslation()
 
   const stages = [

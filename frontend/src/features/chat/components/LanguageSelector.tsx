@@ -1,6 +1,5 @@
 import React from 'react'
 import { useLanguage } from '@/context/LanguageContext'
-import { Select } from '@/components/ui/select'
 import { Globe } from 'lucide-react'
 
 export const LanguageSelector: React.FC = () => {
@@ -14,12 +13,17 @@ export const LanguageSelector: React.FC = () => {
   return (
     <div className="flex items-center space-x-2">
       <Globe className="h-5 w-5 text-muted-foreground" />
-      <Select
+      <select
         value={language}
         onChange={(e) => setLanguage(e.target.value as any)}
-        options={options}
-        className="w-48"
-      />
+        className="w-48 h-10 rounded-md border border-input bg-background px-3 text-sm"
+      >
+        {options.map((option) => (
+          <option key={option.value} value={option.value}>
+            {option.label}
+          </option>
+        ))}
+      </select>
     </div>
   )
 }

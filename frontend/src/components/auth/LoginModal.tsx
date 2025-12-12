@@ -27,7 +27,6 @@ export const LoginModal: React.FC<LoginModalProps> = ({ isOpen, onClose, onSucce
   const [otp, setOtp] = useState('')
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState('')
-  const [isNewUser, setIsNewUser] = useState(false)
   
   // Registration fields
   const [name, setName] = useState('')
@@ -65,7 +64,6 @@ export const LoginModal: React.FC<LoginModalProps> = ({ isOpen, onClose, onSucce
       const response = await authApi.verifyOtp({ identifier, otp })
       
       if (response.is_new_user) {
-        setIsNewUser(true)
         setStep('register')
       } else {
         await verifyOtp(identifier, otp)

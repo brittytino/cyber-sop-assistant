@@ -87,7 +87,7 @@ export const ProgressTimeline: React.FC<ProgressTimelineProps> = ({
         <div className="absolute left-4 top-0 bottom-0 w-0.5 bg-gray-200 dark:bg-gray-700" />
 
         <div className="space-y-6">
-          {allStages.map((stage, index) => {
+          {allStages.map((stage) => {
             const completed = isStageCompleted(stage)
             const current = isStageCurrent(stage)
             const timestamp = getStageTimestamp(stage)

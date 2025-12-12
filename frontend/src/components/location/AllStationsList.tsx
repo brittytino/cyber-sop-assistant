@@ -1,15 +1,15 @@
 import React, { useState, useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
-import { stationsApi, type PoliceStation } from '@/services/api/stationsApi'
+import { stationsApi } from '@/services/api/stationsApi'
 import { Card } from '@/components/ui/card'
 import { Input } from '@/components/ui/input'
 import { Button } from '@/components/ui/button'
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
+import { Tabs, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import { MapPin, Phone, Mail, ExternalLink, Search, Filter, Shield } from 'lucide-react'
 import { toast } from 'sonner'
 
 export const AllStationsList: React.FC = () => {
-  const { t } = useTranslation()
+  const { t } = useTranslation() // Used for toast messages
   const [allStations, setAllStations] = useState<any[]>([])
   const [filteredStations, setFilteredStations] = useState<any[]>([])
   const [isLoading, setIsLoading] = useState(true)
@@ -17,7 +17,15 @@ export const AllStationsList: React.FC = () => {
   const [filterType, setFilterType] = useState<'all' | 'cyber' | 'regular'>('all')
   const [selectedDistrict, setSelectedDistrict] = useState<string>('all')
 
-  // Coimbatore and Tamil Nadu districts
+  // Load stations on mount
+  useEffect(() => {
+    loadAllStations()
+  }, [])
+
+  useEffect(() => {
+    applyFilters()
+  }, [searchQuery, filterType, selectedDistrict, allStations])
+
   const tamilNaduDistricts = [
     'all',
     'Coimbatore',
@@ -33,14 +41,6 @@ export const AllStationsList: React.FC = () => {
     'Dindigul',
     'Kanyakumari'
   ]
-
-  useEffect(() => {
-    loadAllStations()
-  }, [])
-
-  useEffect(() => {
-    applyFilters()
-  }, [searchQuery, filterType, selectedDistrict, allStations])
 
   const loadAllStations = async () => {
     setIsLoading(true)
