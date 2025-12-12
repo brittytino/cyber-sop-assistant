@@ -10,8 +10,11 @@ dist/
 downloads/
 eggs/
 .eggs/
-lib/
-lib64/
+# Python lib directories (not frontend src/lib)
+/lib/
+/lib64/
+backend/lib/
+backend/lib64/
 parts/
 sdist/
 var/
@@ -80,11 +83,18 @@ backend/data/logs/*.log
 .env
 .env.local
 .env.*.local
-*.env
+.env.development
+.env.production
+.env.test
 config/development/*.env
 config/production/*.env
 config/test/*.env
+
+# BUT keep example files
 !.env.example
+!backend/.env.example
+!frontend/.env.example
+!config/**/.env.example
 
 # Database
 *.db
@@ -115,20 +125,27 @@ data/raw/**
 !data/raw/.gitkeep
 data/processed/**
 !data/processed/.gitkeep
+!data/processed/*.json
+!data/processed/*.jsonl
 data/cache/**
 !data/cache/.gitkeep
+!data/cache/metadata.json
 data/vectorstore/**
 !data/vectorstore/.gitkeep
+!data/vectorstore/metadata.json
 backend/data/raw/**
 backend/data/processed/**
 backend/data/cache/**
 backend/data/vectorstore/**
 
-# Model files (large binary files)
+# Model files (large binary files - exclude large model files but keep metadata)
 models/base/**
 models/finetuned/**
+!models/finetuned/metadata.json
 models/embeddings/**
+!models/embeddings/metadata.json
 models/classifiers/**
+!models/classifiers/metadata.json
 backend/models/finetuned/**
 backend/models/embeddings/**
 *.bin
