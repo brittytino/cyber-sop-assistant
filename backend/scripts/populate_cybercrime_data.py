@@ -603,9 +603,15 @@ async def populate_data():
     try:
         print("🚀 Starting ChromaDB population...")
         
-        # Initialize services
+        # Initialize embedding service first
+        print("📦 Initializing embedding service...")
+        await embedding_service.initialize()
+        print("✓ Embedding service ready")
+        
+        # Initialize RAG service
         print("📦 Initializing RAG service...")
         await rag_service.initialize()
+        print("✓ RAG service ready")
         
         # Check if data already exists
         doc_count = rag_service.get_document_count()

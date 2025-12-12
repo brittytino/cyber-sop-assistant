@@ -2,7 +2,7 @@ import React from 'react'
 import { useTranslation } from 'react-i18next'
 import { StationFinder } from '@/components/location/StationFinder'
 import { Button } from '@/components/ui/button'
-import { ArrowLeft, MapPin } from 'lucide-react'
+import { ArrowLeft, MapPin, List } from 'lucide-react'
 import { useNavigate } from 'react-router-dom'
 
 const StationsPage: React.FC = () => {
@@ -31,13 +31,25 @@ const StationsPage: React.FC = () => {
         </div>
 
         {/* Info Banner */}
-        <div className="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg p-4">
+        <div className="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg p-4 mb-4">
           <h3 className="text-sm font-semibold text-blue-800 dark:text-blue-200 mb-2">
             💡 {t('stations.helpfulTip')}
           </h3>
           <p className="text-xs text-blue-700 dark:text-blue-300">
             {t('stations.helpfulTipDesc')}
           </p>
+        </div>
+
+        {/* View All Stations Button */}
+        <div className="flex justify-end mb-4">
+          <Button 
+            onClick={() => navigate('/stations/all')} 
+            variant="outline"
+            className="gap-2"
+          >
+            <List className="w-4 h-4" />
+            View All Stations & Cyber Crime Cells
+          </Button>
         </div>
       </div>
 

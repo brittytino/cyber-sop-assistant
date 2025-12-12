@@ -18,6 +18,7 @@ import NotFoundPage from '@/pages/NotFoundPage'
 // New Pages
 import ProfilePage from '@/pages/ProfilePage'
 import StationsPage from '@/pages/StationsPage'
+import AllStationsListPage from '@/pages/AllStationsListPage'
 import EmergencyPage from '@/pages/EmergencyPage'
 import { FilingStatus } from '@/components/automation/FilingStatus'
 import { FilingHistory } from '@/components/automation/FilingHistory'
@@ -42,6 +43,7 @@ function App() {
                   {/* New Routes */}
                   <Route path="/profile" element={<ProfilePage />} />
                   <Route path="/stations" element={<StationsPage />} />
+                  <Route path="/stations/all" element={<AllStationsListPage />} />
                   <Route path="/emergency" element={<EmergencyPage />} />
                   <Route path="/automation/status/:filingId" element={<FilingStatus />} />
                   <Route path="/automation/history" element={<FilingHistory />} />

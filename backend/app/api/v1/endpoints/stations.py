@@ -1,11 +1,12 @@
 """
 Police Stations Endpoints
-Find nearby police stations and cybercrime cells
+Find nearby police stations and cybercrime cells with real-time data
 """
 from fastapi import APIRouter, Query, HTTPException, status
 from typing import Optional, List
 
 from app.services.stations_service import stations_service
+from app.services.location_service import location_service
 from app.models.location import (
     LocationRequest, NearbyStationsResponse, PoliceStation,
     StateWiseCyberCells, StationType, GeoCoordinates
@@ -138,9 +139,9 @@ async def get_station_details(station_id: str):
 @router.get("/pincode/{pincode}")
 async def get_stations_by_pincode(pincode: str):
     """
-    Get stations near a specific pincode
+    Get stations near a specific pincode with real-time OpenStreetMap data
     
-    Convenient endpoint for pincode-based search
+    Combines database + real-time scraping for comprehensive results
     """
     if not pincode or len(pincode) != 6 or not pincode.isdigit():
         raise HTTPException(
@@ -148,13 +149,78 @@ async def get_stations_by_pincode(pincode: str):
             detail="Invalid pincode format. Must be 6 digits."
         )
     
-    request = LocationRequest(
-        pincode=pincode,
-        radius_km=15,
-        max_results=10
-    )
+    logger.info(f"Searching stations for pincode: {pincode}")
     
-    return await stations_service.find_nearby_stations(request)
+    try:
+        # Get real-time data from location service
+        realtime_stations = await location_service.get_stations_by_pincode(pincode)
+        
+        # Also get from our database
+        request = LocationRequest(
+            pincode=pincode,
+            radius_km=15,
+            max_results=20
+        )
+        db_result = await stations_service.find_nearby_stations(request)
+        
+        # Merge results (remove duplicates by comparing names/coordinates)
+        all_stations = []
+        seen = set()
+        
+        # Add database stations first (verified data)
+        for station in db_result.stations:
+            key = f"{station.name}_{station.coordinates.latitude if station.coordinates else ''}"
+            if key not in seen:
+                all_stations.append({
+                    "station_id": station.station_id,
+                    "name": station.name,
+                    "name_local": station.name_local,
+                    "type": station.station_type,
+                    "address": station.address,
+                    "address_local": station.address_local,
+                    "city": station.city,
+                    "state": station.state,
+                    "pincode": station.pincode,
+                    "phone_numbers": station.phone_numbers,
+                    "email": station.email,
+                    "latitude": station.coordinates.latitude if station.coordinates else None,
+                    "longitude": station.coordinates.longitude if station.coordinates else None,
+                    "handles_cybercrime": station.handles_cybercrime,
+                    "open_24x7": station.open_24x7,
+                    "source": "verified_database",
+                    "google_maps_url": station.google_maps_url
+                })
+                seen.add(key)
+        
+        # Add real-time scraped stations
+        for station in realtime_stations:
+            key = f"{station.get('name')}_{station.get('latitude', '')}"
+            if key not in seen:
+                all_stations.append({
+                    **station,
+                    "source": "openstreetmap_realtime"
+                })
+                seen.add(key)
+        
+        # Sort by distance
+        all_stations.sort(key=lambda x: x.get("distance_km", 999))
+        
+        return {
+            "pincode": pincode,
+            "total_stations": len(all_stations),
+            "stations": all_stations[:20],  # Limit to top 20
+            "data_sources": ["verified_database", "openstreetmap_realtime"]
+        }
+        
+    except Exception as e:
+        logger.error(f"Error fetching stations for pincode {pincode}: {e}")
+        # Fallback to database only
+        request = LocationRequest(
+            pincode=pincode,
+            radius_km=15,
+            max_results=10
+        )
+        return await stations_service.find_nearby_stations(request)
 
 
 @router.get("/city/{city_name}")

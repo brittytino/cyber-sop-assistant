@@ -4,7 +4,7 @@
 
 ![Cyber SOP Assistant](https://img.shields.io/badge/Cyber%20SOP-Assistant-blue?style=for-the-badge)
 ![License](https://img.shields.io/badge/license-MIT-green?style=for-the-badge)
-![Python](https://img.shields.io/badge/Python-3.11+-blue?style=for-the-badge&logo=python)
+![Python](https://img.shields.io/badge/Python-3.13+-blue?style=for-the-badge&logo=python)
 ![React](https://img.shields.io/badge/React-18.3-blue?style=for-the-badge&logo=react)
 
 **AI-Powered Cybercrime Assistance Platform for India**
@@ -156,7 +156,7 @@ cd cyber-sop-assistant
 The script will automatically:
 - ✅ Activate Python virtual environment
 - ✅ Start backend server on `http://localhost:8000`
-- ✅ Start frontend server on `http://localhost:5173`
+- ✅ Start frontend server on `http://localhost:3000`
 - ✅ Open browser automatically
 
 **First Time Setup:**
@@ -199,7 +199,7 @@ chmod +x start.sh
 The script will automatically:
 - ✅ Activate Python virtual environment
 - ✅ Start backend on port 8000
-- ✅ Start frontend on port 5173
+- ✅ Start frontend on port 3000
 - ✅ Open browser
 
 **First Time Setup:**
@@ -356,7 +356,7 @@ OLLAMA_MODEL=llama3:8b
 CHROMA_COLLECTION_NAME=cyber_sop_docs
 
 # CORS (comma-separated)
-CORS_ORIGINS=http://localhost:5173,http://localhost:3000
+CORS_ORIGINS=http://localhost:3000,http://localhost:8000
 
 # File Upload
 MAX_UPLOAD_SIZE_MB=10
@@ -391,7 +391,7 @@ VITE_ENABLE_DEBUG=true
 ### 1. Anonymous User Flow (No Login Required)
 
 ```
-1. Visit http://localhost:5173
+1. Visit http://localhost:3000
 2. Click "Start Chat" in the home page
 3. Describe your cybercrime incident in natural language
 4. Receive instant AI-powered guidance with:

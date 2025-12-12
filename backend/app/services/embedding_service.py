@@ -3,7 +3,7 @@ Embedding Service - Text Embedding Generation
 Uses sentence-transformers for local embedding generation
 """
 from sentence_transformers import SentenceTransformer
-from typing import List, Union
+from typing import List, Union, Optional
 import numpy as np
 from pathlib import Path
 

@@ -25,13 +25,13 @@ start "Frontend" cmd /k "cd frontend && npm run dev"
 timeout /t 5 /nobreak >nul
 
 REM Open browser
-start http://localhost:5173
+start http://localhost:3000
 
 echo.
 echo ========================================
 echo   Application Started!
 echo ========================================
-echo   Frontend: http://localhost:5173
+echo   Frontend: http://localhost:3000
 echo   Backend:  http://localhost:8000
 echo   API Docs: http://localhost:8000/api/docs
 echo ========================================
