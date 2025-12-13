@@ -476,5 +476,472 @@
       "selectAll": "Select All",
       "goBack": "Go Back"
     }
+  },
+  "landing": {
+    "title": "Get Guided Help for Cybercrime",
+    "subtitle": "Report cybercrimes with step-by-step guidance in your language",
+    "languageSelector": "Choose Your Language",
+    "anonymousPath": {
+      "title": "Start Anonymous Help",
+      "subtitle": "No login required • Complete privacy",
+      "features": {
+        "privacy": "100% Private - No data stored",
+        "instant": "Instant SOP Guidance",
+        "multilingual": "Available in 8 languages",
+        "free": "Completely free to use"
+      }
+    },
+    "automatedPath": {
+      "title": "Login for Automation",
+      "subtitle": "Auto-file complaints • Track incidents",
+      "features": {
+        "autofile": "Automated complaint filing",
+        "tracking": "Incident tracking & history",
+        "evidence": "Secure evidence vault",
+        "audit": "Security risk audit"
+      }
+    }
+  },
+  "anonymousChat": {
+    "title": "Anonymous Help Chat",
+    "subtitle": "Describe your cybercrime incident and get guided help",
+    "welcome": "Welcome! I'm here to help you report cybercrime. Please describe what happened in your own words.",
+    "anonymousMode": "Anonymous Mode",
+    "upgradeToAccount": "Upgrade to Account",
+    "inputPlaceholder": "Describe what happened...",
+    "error": "An error occurred: {{error}}",
+    "sopTitle": "Your Cybercrime Reporting Guide",
+    "crimeType": "Crime Type",
+    "immediateActions": "Immediate Actions",
+    "reportingProcedure": "Reporting Procedure",
+    "evidenceChecklist": "Evidence Checklist",
+    "officialLinks": "Official Links",
+    "helplines": "Helplines",
+    "complaintDraft": "Auto-Generated Complaint",
+    "copy": "Copy Text",
+    "copied": "Copied!",
+    "download": "Download",
+    "upgradeForAutoFiling": "Upgrade for Auto-Filing"
+  },
+  "auth": {
+    "login": {
+      "title": "Login to Your Account",
+      "subtitle": "Access automation features and incident tracking",
+      "methodEmail": "Login with Email",
+      "methodPhone": "Login with Phone",
+      "emailLabel": "Email Address",
+      "phoneLabel": "Phone Number",
+      "passwordLabel": "Password",
+      "loginButton": "Login",
+      "forgotPassword": "Forgot Password?",
+      "useOtp": "Use OTP Instead",
+      "noAccount": "Don't have an account?",
+      "signupLink": "Sign Up",
+      "continueAnonymous": "or continue as",
+      "anonymousLink": "Anonymous User",
+      "error": "Login failed. Please check your credentials."
+    },
+    "signup": {
+      "title": "Create Your Account",
+      "subtitle": "Get started with automated complaint filing",
+      "step1": "Basic Information",
+      "step2": "Additional Details",
+      "step3": "Consent & Completion",
+      "nameLabel": "Full Name",
+      "methodLabel": "Choose Login Method",
+      "emailLabel": "Email Address",
+      "phoneLabel": "Phone Number",
+      "passwordLabel": "Password",
+      "confirmPasswordLabel": "Confirm Password",
+      "addressLabel": "Address",
+      "cityLabel": "City",
+      "stateLabel": "State",
+      "pincodeLabel": "Pincode",
+      "idTypeLabel": "ID Type",
+      "idNumberLabel": "ID Number",
+      "idTypes": {
+        "aadhaar": "Aadhaar Card",
+        "pan": "PAN Card",
+        "passport": "Passport",
+        "driving_license": "Driving License"
+      },
+      "consent": {
+        "title": "Please review and consent",
+        "dataStorage": "I consent to storing my details securely for complaint filing",
+        "autoFill": "I consent to auto-filling official forms with my details",
+        "terms": "I accept the Terms of Service and Privacy Policy"
+      },
+      "nextButton": "Next",
+      "backButton": "Back",
+      "signupButton": "Create Account",
+      "alreadyHaveAccount": "Already have an account?",
+      "loginLink": "Login",
+      "passwordMismatch": "Passwords do not match",
+      "error": "Signup failed. Please try again."
+    }
+  },
+  "incidents": {
+    "title": "My Incidents",
+    "subtitle": "Track and manage your cybercrime reports",
+    "newIncident": "Report New Incident",
+    "searchPlaceholder": "Search incidents...",
+    "filterAll": "All Status",
+    "filterDraft": "Draft",
+    "filterSubmitted": "Submitted",
+    "filterUnderReview": "Under Review",
+    "filterClosed": "Closed",
+    "noIncidents": "No Incidents Found",
+    "noIncidentsDesc": "You haven't reported any incidents yet",
+    "createFirst": "Report Your First Incident",
+    "loading": "Loading incidents...",
+    "crimeType": "Crime Type",
+    "view": "View Details",
+    "status": {
+      "draft": "Draft",
+      "submitted": "Submitted",
+      "under_review": "Under Review",
+      "closed": "Closed"
+    },
+    "confirmDelete": "Are you sure you want to delete this incident?",
+    "findNearbyStation": "Find Nearby Station",
+    "findNearbyStationDesc": "Locate police stations and cyber cells near you",
+    "runRiskAudit": "Run Security Audit",
+    "runRiskAuditDesc": "Check your accounts for security risks",
+    "practiceScenarios": "Practice & Learn",
+    "practiceScenariosDesc": "Learn with interactive cybercrime scenarios"
+  },
+  "incidentDetail": {
+    "title": "Incident Details",
+    "back": "Back to Incidents",
+    "loading": "Loading incident details...",
+    "notFound": "Incident not found",
+    "backToList": "Back to incidents list",
+    "complaintNumber": "Complaint Number",
+    "crimeType": "Crime Type",
+    "manageEvidence": "Manage Evidence",
+    "runAudit": "Run Security Audit",
+    "tabDetails": "Details",
+    "tabTimeline": "Timeline",
+    "tabEvidence": "Evidence",
+    "description": "Incident Description",
+    "complaintDraft": "Complaint Draft",
+    "download": "Download",
+    "dates": "Important Dates",
+    "created": "Created",
+    "updated": "Last Updated",
+    "quickActions": "Quick Actions",
+    "findStation": "Find Nearby Station",
+    "callHelpline": "Call 1930 Helpline",
+    "visitPortal": "Visit Cybercrime Portal",
+    "timeline": "Incident Timeline",
+    "noTimeline": "No timeline events yet",
+    "evidenceManagement": "Evidence Management",
+    "evidenceDesc": "Upload and manage evidence files for this incident",
+    "goToEvidence": "Go to Evidence Vault",
+    "status": {
+      "draft": "Draft",
+      "submitted": "Submitted",
+      "under_review": "Under Review",
+      "closed": "Closed"
+    }
+  },
+  "evidence": {
+    "title": "Evidence Vault",
+    "subtitle": "Securely store and manage evidence files",
+    "backToIncident": "Back to Incident",
+    "uploadNew": "Upload Evidence",
+    "noEvidence": "No Evidence Files",
+    "noEvidenceDesc": "Upload screenshots, documents, and other evidence files",
+    "uploadFirst": "Upload Your First Evidence",
+    "loading": "Loading evidence files...",
+    "uploaded": "Uploaded",
+    "download": "Download",
+    "confirmDelete": "Are you sure you want to delete this evidence file?",
+    "infoTitle": "Evidence Best Practices",
+    "infoPoint1": "Take clear screenshots with timestamps visible",
+    "infoPoint2": "Save all transaction records and receipts",
+    "infoPoint3": "Preserve original messages and communications",
+    "infoPoint4": "All files are encrypted and stored securely",
+    "uploadTitle": "Upload Evidence Files",
+    "selectFiles": "Select Files",
+    "clickToUpload": "Click to upload or drag and drop",
+    "supportedFormats": "Images, Videos, PDFs, Documents",
+    "selectedFiles": "Selected Files",
+    "description": "Description",
+    "optional": "Optional",
+    "descriptionPlaceholder": "Add a description for these files...",
+    "cancel": "Cancel",
+    "upload": "Upload Files",
+    "uploading": "Uploading..."
+  },
+  "location": {
+    "title": "Find Nearby Help",
+    "subtitle": "Locate police stations and cybercrime cells",
+    "searchOptions": "Search Options",
+    "useMyLocation": "Use My Location",
+    "enableLocation": "Enable Location",
+    "locationGranted": "Location Enabled",
+    "radiusLabel": "Search Radius",
+    "searchByCity": "Search by City",
+    "cityPlaceholder": "Enter city name",
+    "searchByPincode": "Search by Pincode",
+    "pincodePlaceholder": "Enter pincode",
+    "search": "Search",
+    "searching": "Searching for stations...",
+    "noStations": "No Stations Found",
+    "noStationsDesc": "Try adjusting your search criteria",
+    "foundStations": "Found {{count}} stations",
+    "away": "away",
+    "openMap": "Open in Maps",
+    "emergencyHelplines": "Emergency Helplines",
+    "cybercrimeHelpline": "Cybercrime Helpline",
+    "policeEmergency": "Police Emergency"
+  },
+  "riskAudit": {
+    "title": "Security Risk Audit",
+    "subtitle": "Check your accounts for security risks after an incident",
+    "backToIncident": "Back to Incident",
+    "selectServices": "Select Affected Services",
+    "selectServicesDesc": "Choose which accounts or services were involved in the incident",
+    "selectAtLeastOne": "Please select at least one service",
+    "startAudit": "Start Security Audit",
+    "running": "Running Audit...",
+    "analyzing": "Analyzing your security...",
+    "yourProgress": "Your Progress",
+    "of": "of",
+    "actionsCompleted": "actions completed",
+    "runNewAudit": "Run New Audit",
+    "affectedService": "Affected Service",
+    "markComplete": "Mark as Complete",
+    "skip": "Skip",
+    "completed": "Completed",
+    "skipped": "Skipped",
+    "allComplete": "All Security Actions Completed!",
+    "allCompleteDesc": "Great job securing your accounts. Stay vigilant!",
+    "services": {
+      "upi": "UPI Payments",
+      "banking": "Banking Apps",
+      "email": "Email Account",
+      "socialMedia": "Social Media",
+      "phone": "Phone Number",
+      "passwords": "Passwords"
+    },
+    "priority": {
+      "critical": "Critical",
+      "high": "High",
+      "medium": "Medium",
+      "low": "Low"
+    }
+  },
+  "simulator": {
+    "title": "Scenario Simulator",
+    "subtitle": "Practice identifying and responding to cybercrimes",
+    "howItWorks": "How It Works",
+    "howItWorksDesc": "Learn to identify cybercrime scenarios and make the right decisions in a safe, simulated environment.",
+    "startScenario": "Start Scenario",
+    "exitScenario": "Exit Scenario",
+    "question": "Question",
+    "of": "of",
+    "score": "Score",
+    "submitAnswer": "Submit Answer",
+    "nextQuestion": "Next Question",
+    "finish": "Finish",
+    "scenarioComplete": "Scenario Complete!",
+    "finalScore": "Your Final Score",
+    "difficulty": {
+      "beginner": "Beginner",
+      "intermediate": "Intermediate",
+      "advanced": "Advanced"
+    },
+    "scenarios": {
+      "upiScam": {
+        "title": "UPI Payment Scam",
+        "description": "Learn to identify fake payment requests and refund scams",
+        "question1": {
+          "situation": "You receive a call asking for your UPI PIN to process a refund. What should you do?",
+          "optionA": "Share the PIN to get the refund quickly",
+          "optionB": "Refuse to share and report the call immediately",
+          "optionC": "Ask them to send an email first",
+          "explanationA": "Never share your UPI PIN! This is a scam. Your PIN is confidential.",
+          "explanationB": "Correct! Never share your UPI PIN. Report such calls to 1930.",
+          "explanationC": "While verification is good, the safest option is to refuse completely and report."
+        },
+        "question2": {
+          "situation": "A payment request appears asking to 'collect' money instead of 'pay'. What is this?",
+          "optionA": "A legitimate refund request",
+          "optionB": "A scam attempting to make you send money",
+          "optionC": "A system error",
+          "explanationA": "Correct! 'Collect' requests are used by scammers to trick you into sending money.",
+          "explanationB": "Incorrect. Refunds are always sent by the merchant, not collected.",
+          "explanationC": "This is not an error. It's a deliberate scam tactic."
+        }
+      },
+      "phishing": {
+        "title": "Email Phishing Attack",
+        "description": "Recognize and avoid phishing emails and fake links",
+        "question1": {
+          "situation": "An email claims your account will be closed. Click link to verify.",
+          "optionA": "Click the link immediately",
+          "optionB": "Check sender email and report if suspicious",
+          "optionC": "Reply asking for more details",
+          "explanationA": "Wrong! Phishing emails use urgency to trick you.",
+          "explanationB": "Correct! Always verify sender and never click suspicious links.",
+          "explanationC": "Replying confirms your email is active. Better to ignore and report."
+        },
+        "question2": {
+          "situation": "How can you identify a phishing email?",
+          "optionA": "Check for spelling errors and generic greetings",
+          "optionB": "All emails are safe",
+          "optionC": "Only check the subject line",
+          "explanationA": "Correct! Phishing emails often have poor grammar and generic messages.",
+          "explanationB": "Incorrect! Many emails are phishing attempts.",
+          "explanationC": "You need to check sender, content, and links carefully."
+        }
+      },
+      "fakeJob": {
+        "title": "Fake Job Offer Scam",
+        "description": "Identify fraudulent job offers and recruitment scams",
+        "question1": {
+          "situation": "A job offer asks for payment for 'training materials'. Is this legitimate?",
+          "optionA": "Yes, companies often charge for training",
+          "optionB": "No, legitimate companies don't ask for payment",
+          "optionC": "Only if they provide a receipt",
+          "explanationA": "Incorrect! Legitimate companies never ask candidates to pay for jobs.",
+          "explanationB": "Correct! Any job requiring payment upfront is a scam.",
+          "explanationC": "Even with a receipt, this is a red flag for a scam."
+        },
+        "question2": {
+          "situation": "What's a red flag in job postings?",
+          "optionA": "Too-good-to-be-true salary with minimal qualifications",
+          "optionB": "Detailed job description",
+          "optionC": "Company website link",
+          "explanationA": "Correct! Unrealistic promises are major red flags.",
+          "explanationB": "Detailed descriptions are actually good signs.",
+          "explanationC": "Company links are normal, but verify they're legitimate."
+        }
+      },
+      "socialMediaHack": {
+        "title": "Social Media Account Hack",
+        "description": "Secure and recover hacked social media accounts",
+        "question1": {
+          "situation": "Your account is hacked. First step?",
+          "optionA": "Try to log in repeatedly",
+          "optionB": "Use account recovery and change password",
+          "optionC": "Delete the app",
+          "explanationA": "This won't help. Use official recovery options.",
+          "explanationB": "Correct! Use account recovery immediately and enable 2FA.",
+          "explanationC": "Deleting the app doesn't recover your account."
+        },
+        "question2": {
+          "situation": "Best way to prevent account hacking?",
+          "optionA": "Use same password everywhere",
+          "optionB": "Enable two-factor authentication",
+          "optionC": "Share password with trusted friends",
+          "explanationA": "Very unsafe! Use unique passwords for each account.",
+          "explanationB": "Correct! 2FA adds essential security layer.",
+          "explanationC": "Never share passwords, even with friends."
+        }
+      },
+      "investmentFraud": {
+        "title": "Investment Fraud Scheme",
+        "description": "Identify Ponzi schemes and investment scams",
+        "question1": {
+          "situation": "An investment promises 50% returns in one month. Your action?",
+          "optionA": "Invest immediately",
+          "optionB": "Recognize as scam and report",
+          "optionC": "Ask friends first",
+          "explanationA": "Extremely unsafe! This is a classic Ponzi scheme.",
+          "explanationB": "Correct! Unrealistic returns always indicate fraud.",
+          "explanationC": "Don't risk it. Report to authorities immediately."
+        },
+        "question2": {
+          "situation": "How to verify investment legitimacy?",
+          "optionA": "Check SEBI registration",
+          "optionB": "Trust social media ads",
+          "optionC": "Believe referral promises",
+          "explanationA": "Correct! Always verify with SEBI or RBI databases.",
+          "explanationB": "Never trust ads. Scammers use fake promotions.",
+          "explanationC": "Referral schemes are often pyramid scams."
+        }
+      },
+      "identityTheft": {
+        "title": "Identity Theft Prevention",
+        "description": "Protect and monitor your personal information",
+        "question1": {
+          "situation": "Someone uses your Aadhaar details. What to do?",
+          "optionA": "Ignore it",
+          "optionB": "File FIR and lock Aadhaar",
+          "optionC": "Just change password",
+          "explanationA": "Never ignore! This is serious identity theft.",
+          "explanationB": "Correct! File FIR immediately and use Aadhaar lock feature.",
+          "explanationC": "Aadhaar doesn't have a password. Lock it on UIDAI portal."
+        },
+        "question2": {
+          "situation": "Best practice for ID protection?",
+          "optionA": "Share ID copies freely",
+          "optionB": "Watermark copies before sharing",
+          "optionC": "Post on social media",
+          "explanationA": "Very dangerous! Only share when absolutely necessary.",
+          "explanationB": "Correct! Always watermark with purpose and date.",
+          "explanationC": "Never post ID documents on social media!"
+        }
+      }
+    },
+    "benefits": {
+      "safe": "Safe Practice Environment",
+      "safeDesc": "Learn without any real-world consequences",
+      "learn": "Interactive Learning",
+      "learnDesc": "Get instant feedback on your decisions",
+      "prepared": "Be Prepared",
+      "preparedDesc": "Know what to do when facing real cybercrimes"
+    }
+  },
+  "settings": {
+    "title": "Settings",
+    "subtitle": "Manage your preferences and account",
+    "saveSuccess": "Settings saved successfully!",
+    "tabs": {
+      "general": "General",
+      "account": "Account",
+      "privacy": "Privacy & Data",
+      "notifications": "Notifications"
+    },
+    "language": {
+      "title": "Language Preference",
+      "description": "Choose your preferred language for the interface"
+    },
+    "theme": {
+      "title": "Theme Preference",
+      "description": "Choose how the app looks",
+      "light": "Light",
+      "dark": "Dark",
+      "system": "System"
+    },
+    "account": {
+      "info": "Account Information",
+      "name": "Name",
+      "phone": "Phone Number",
+      "email": "Email Address",
+      "security": "Security",
+      "logout": "Logout"
+    },
+    "privacy": {
+      "dataManagement": "Data Management",
+      "exportData": "Export My Data",
+      "deleteAccount": "Delete Account"
+    },
+    "notifications": {
+      "title": "Notifications",
+      "description": "Manage how you receive updates",
+      "push": "Push Notifications",
+      "pushDesc": "Get notified about incident updates",
+      "enable": "Enable"
+    },
+    "loginRequired": "Login Required",
+    "loginRequiredDesc": "Please login to access these settings",
+    "goToLogin": "Go to Login",
+    "confirmLogout": "Are you sure you want to logout?",
+    "confirmDelete": "Are you sure you want to delete your account? This action cannot be undone.",
+    "exportStarted": "Export started. You'll receive a download link shortly."
   }
 }

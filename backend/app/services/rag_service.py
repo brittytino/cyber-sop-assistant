@@ -1,11 +1,14 @@
 """
 RAG Service - Retrieval Augmented Generation
 ChromaDB integration for document retrieval
+OPTIMIZED: Fast caching and improved retrieval
 """
 import chromadb
 from chromadb.config import Settings as ChromaSettings
 from typing import List, Dict, Any, Optional
 from pathlib import Path
+import hashlib
+import diskcache as dc
 
 from app.core.config import settings
 from app.core.logging import logger
@@ -22,6 +25,10 @@ class RAGService:
         self.client: Optional[chromadb.Client] = None
         self.collection: Optional[chromadb.Collection] = None
         self._initialized = False
+        # Fast query results cache
+        cache_dir = Path(settings.CACHE_PATH) / "rag_queries"
+        cache_dir.mkdir(parents=True, exist_ok=True)
+        self.query_cache = dc.Cache(str(cache_dir))
     
     async def initialize(self):
         """Initialize ChromaDB client and collection"""
@@ -83,7 +90,7 @@ class RAGService:
         score_threshold: float = None
     ) -> List[Dict[str, Any]]:
         """
-        Retrieve relevant documents for query
+        Retrieve relevant documents for query with caching
         
         Args:
             query: Search query
@@ -100,23 +107,31 @@ class RAGService:
         score_threshold = score_threshold or settings.RAG_SCORE_THRESHOLD
         
         try:
+            # Check cache first (FAST)
+            cache_key = self._get_query_cache_key(query, top_k, score_threshold)
+            cached = self.query_cache.get(cache_key)
+            if cached is not None:
+                logger.info(f"Retrieved {len(cached)} documents from cache (FAST)")
+                return cached
+            
             # Generate query embedding
             query_embedding = await embedding_service.embed_text(query)
             
-            # Query ChromaDB
+            # Query ChromaDB with optimized parameters
             results = self.collection.query(
                 query_embeddings=[query_embedding],
-                n_results=top_k,
+                n_results=min(top_k * 2, 10),  # Get more candidates for better filtering
                 include=["documents", "metadatas", "distances"]
             )
             
-            # Process results
+            # Process results with improved scoring
             documents = []
             if results["documents"] and results["documents"][0]:
                 for i, doc in enumerate(results["documents"][0]):
                     distance = results["distances"][0][i]
-                    # Convert distance to similarity score (lower distance = higher similarity)
-                    similarity = 1 / (1 + distance)
+                    # Convert distance to similarity score (0-1, higher is better)
+                    # Using exponential decay for better discrimination
+                    similarity = 1 / (1 + distance ** 0.5)
                     
                     if similarity >= score_threshold:
                         metadata = results["metadatas"][0][i] if results["metadatas"] else {}
@@ -126,8 +141,16 @@ class RAGService:
                             "source": metadata.get("source", "Unknown"),
                             "category": metadata.get("category", "general"),
                             "date": metadata.get("date", "N/A"),
-                            "url": metadata.get("url", "")
+                            "url": metadata.get("url", ""),
+                            "title": metadata.get("title", "")
                         })
+            
+            # Sort by score and take top_k
+            documents.sort(key=lambda x: x["score"], reverse=True)
+            documents = documents[:top_k]
+            
+            # Cache results
+            self.query_cache.set(cache_key, documents, expire=settings.CACHE_TTL)
             
             logger.info(f"Retrieved {len(documents)} documents for query (top_k={top_k})")
             return documents
@@ -186,10 +209,25 @@ class RAGService:
                 name=self.collection_name,
                 metadata={"description": "Government SOP documents for cybercrime reporting"}
             )
+            # Clear query cache
+            self.query_cache.clear()
             logger.info("Deleted all documents from collection")
         except Exception as e:
             logger.error(f"Error deleting documents: {e}")
             raise ChromaDBError(f"Failed to delete documents: {str(e)}")
+    
+    def _get_query_cache_key(self, query: str, top_k: int, threshold: float) -> str:
+        """Generate cache key for query"""
+        key_str = f"{query}_{top_k}_{threshold}"
+        return hashlib.md5(key_str.encode()).hexdigest()
+    
+    def clear_cache(self):
+        """Clear query cache"""
+        try:
+            self.query_cache.clear()
+            logger.info("Query cache cleared")
+        except Exception as e:
+            logger.error(f"Error clearing cache: {e}")
     
     async def cleanup(self):
         """Cleanup resources"""

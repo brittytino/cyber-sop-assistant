@@ -1,11 +1,14 @@
 """
 Embedding Service - Text Embedding Generation
 Uses sentence-transformers for local embedding generation
+OPTIMIZED: Fast caching and batch processing
 """
 from sentence_transformers import SentenceTransformer
 from typing import List, Union, Optional
 import numpy as np
 from pathlib import Path
+import hashlib
+import diskcache as dc
 
 from app.core.config import settings
 from app.core.logging import logger
@@ -20,6 +23,10 @@ class EmbeddingService:
         self.model_name = settings.EMBEDDING_MODEL_NAME
         self.model: Optional[SentenceTransformer] = None
         self._initialized = False
+        # Fast disk cache for embeddings
+        cache_dir = Path(settings.CACHE_PATH) / "embeddings"
+        cache_dir.mkdir(parents=True, exist_ok=True)
+        self.cache = dc.Cache(str(cache_dir))
     
     async def initialize(self):
         """Initialize embedding model"""
@@ -49,7 +56,7 @@ class EmbeddingService:
     
     async def embed_text(self, text: str) -> List[float]:
         """
-        Generate embedding for single text
+        Generate embedding for single text with caching
         
         Args:
             text: Input text
@@ -61,9 +68,20 @@ class EmbeddingService:
             raise EmbeddingModelError("Embedding service not initialized")
         
         try:
+            # Check cache first (FAST)
+            cache_key = self._get_cache_key(text)
+            cached = self.cache.get(cache_key)
+            if cached is not None:
+                return cached
+            
             # Generate embedding
             embedding = self.model.encode(text, convert_to_numpy=True)
-            return embedding.tolist()
+            result = embedding.tolist()
+            
+            # Store in cache
+            self.cache.set(cache_key, result, expire=settings.CACHE_TTL)
+            
+            return result
             
         except Exception as e:
             logger.error(f"Error generating embedding: {e}")
@@ -71,7 +89,7 @@ class EmbeddingService:
     
     async def embed_batch(self, texts: List[str]) -> List[List[float]]:
         """
-        Generate embeddings for batch of texts
+        Generate embeddings for batch of texts with intelligent caching
         
         Args:
             texts: List of input texts
@@ -83,18 +101,49 @@ class EmbeddingService:
             raise EmbeddingModelError("Embedding service not initialized")
         
         try:
-            # Generate embeddings in batch (more efficient)
-            embeddings = self.model.encode(
-                texts,
-                batch_size=32,
-                show_progress_bar=len(texts) > 100,
-                convert_to_numpy=True
-            )
-            return embeddings.tolist()
+            results = []
+            uncached_texts = []
+            uncached_indices = []
+            
+            # Check cache for each text (FAST)
+            for i, text in enumerate(texts):
+                cache_key = self._get_cache_key(text)
+                cached = self.cache.get(cache_key)
+                if cached is not None:
+                    results.append(cached)
+                else:
+                    results.append(None)
+                    uncached_texts.append(text)
+                    uncached_indices.append(i)
+            
+            # Generate embeddings only for uncached texts (OPTIMIZED)
+            if uncached_texts:
+                embeddings = self.model.encode(
+                    uncached_texts,
+                    batch_size=64,  # Larger batch for speed
+                    show_progress_bar=len(uncached_texts) > 50,
+                    convert_to_numpy=True,
+                    normalize_embeddings=True  # Pre-normalize for faster similarity
+                )
+                
+                # Cache and insert results
+                for i, embedding in enumerate(embeddings):
+                    result = embedding.tolist()
+                    idx = uncached_indices[i]
+                    results[idx] = result
+                    # Cache for future use
+                    cache_key = self._get_cache_key(uncached_texts[i])
+                    self.cache.set(cache_key, result, expire=settings.CACHE_TTL)
+            
+            return results
             
         except Exception as e:
             logger.error(f"Error generating batch embeddings: {e}")
             raise EmbeddingModelError(f"Failed to generate batch embeddings: {str(e)}")
+    
+    def _get_cache_key(self, text: str) -> str:
+        """Generate cache key for text"""
+        return hashlib.md5(text.encode()).hexdigest()
     
     def compute_similarity(self, embedding1: List[float], embedding2: List[float]) -> float:
         """

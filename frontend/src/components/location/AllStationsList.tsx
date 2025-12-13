@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react'
-import { useTranslation } from 'react-i18next'
 import { stationsApi } from '@/services/api/stationsApi'
 import { Card } from '@/components/ui/card'
 import { Input } from '@/components/ui/input'
@@ -9,7 +8,6 @@ import { MapPin, Phone, Mail, ExternalLink, Search, Filter, Shield } from 'lucid
 import { toast } from 'sonner'
 
 export const AllStationsList: React.FC = () => {
-  const { t } = useTranslation() // Used for toast messages
   const [allStations, setAllStations] = useState<any[]>([])
   const [filteredStations, setFilteredStations] = useState<any[]>([])
   const [isLoading, setIsLoading] = useState(true)
