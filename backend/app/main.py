@@ -52,10 +52,10 @@ app.add_middleware(RateLimiterMiddleware, rate_limit=settings.RATE_LIMIT_PER_MIN
 app.add_middleware(ErrorHandlerMiddleware)
 app.add_middleware(LoggingMiddleware)
 
-# CORS middleware
+# CORS middleware - Allow network access
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=settings.ALLOWED_ORIGINS,
+    allow_origins=settings.ALLOWED_ORIGINS + ["*"],  # Allow all origins in development
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],

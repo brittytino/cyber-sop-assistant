@@ -9,7 +9,7 @@
 
 **AI-Powered Cybercrime Assistance Platform for India**
 
-[Features](#-key-features) • [Quick Start](#-quick-start) • [Documentation](#-detailed-setup) • [API Docs](#-api-documentation)
+[Features](#-key-features) • [Quick Start](#-quick-start) • [Documentation](Documentation/) • [API Docs](#-api-documentation)
 
 </div>
 
@@ -226,6 +226,8 @@ cd ..
 ---
 
 ## 📦 Detailed Setup
+
+For comprehensive guides, please check the [Documentation](Documentation/) folder.
 
 ### 1. Backend Setup
 
