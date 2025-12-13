@@ -30,18 +30,25 @@ export const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
     <div className="min-h-screen flex flex-col bg-gray-50 dark:bg-gray-900">
       {/* Header */}
       <header className="bg-white dark:bg-gray-800 shadow-sm border-b border-gray-200 dark:border-gray-700 sticky top-0 z-40">
-        <div className="container mx-auto px-4">
-          <div className="flex items-center justify-between h-16">
-            {/* Logo */}
-            <Link to="/" className="flex items-center gap-2">
-              <Shield className="h-8 w-8 text-blue-600 dark:text-blue-400" />
-              <span className="text-xl font-bold text-gray-900 dark:text-white hidden sm:block">
-                {t('app.title')}
-              </span>
-              <span className="text-xl font-bold text-gray-900 dark:text-white sm:hidden">
-                CSA
-              </span>
-            </Link>
+        <div className="flex-1">
+          <div className="flex h-full items-center justify-between h-16 px-4">
+            {/* Left side with India Emblem and i4c Logo */}
+            <div className="flex items-center space-x-3">
+              <div className="h-9 w-9 flex-shrink-0">
+                <img 
+                  src="/images/Emblem_of_India.svg" 
+                  alt="Emblem of India" 
+                  className="h-full w-auto object-contain"
+                />
+              </div>
+              <div className="h-7 w-16">
+                <img 
+                  src="/images/i4cpng.png" 
+                  alt="i4c Logo" 
+                  className="h-full w-auto object-contain"
+                />
+              </div>
+            </div>
 
             {/* Desktop Navigation */}
             <nav className="hidden lg:flex items-center gap-1">
@@ -64,14 +71,16 @@ export const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
               })}
             </nav>
 
-            {/* Right Actions */}
+            {/* Right side with Actions */}
             <div className="flex items-center gap-3">
-              <LanguageSelector />
+              <div className="scale-90">
+                <LanguageSelector />
+              </div>
               
               {/* Theme Toggle */}
               <button
                 onClick={toggleTheme}
-                className="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
+                className="p-1.5 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
                 aria-label="Toggle theme"
               >
                 {theme === 'dark' ? (
@@ -84,6 +93,13 @@ export const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
                   </svg>
                 )}
               </button>
+              <div className="h-9 w-20 ml-1">
+                <img 
+                  src="/images/Azadi-Ka-Amrit-Mahotsav-Logo.png" 
+                  alt="Azadi Ka Amrit Mahotsav" 
+                  className="h-full w-auto object-contain"
+                />
+              </div>
 
               {/* Mobile Menu Button */}
               <button
