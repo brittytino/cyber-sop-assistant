@@ -1,0 +1,72 @@
+# Node
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Frontend build outputs
+dist/
+build/
+frontend/node_modules/
+frontend/dist/
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pyc
+.Python
+env/
+venv/
+.venv/
+ENV/
+pip-wheel-metadata/
+*.egg-info/
+dist/
+build/
+
+# Virtual environment files
+.env
+.env.*
+.venv/
+
+# Editor/project files
+.vscode/
+.idea/
+*.sublime-workspace
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+logs/
+*.log
+
+# Coverage and test
+.pytest_cache/
+coverage/
+htmlcov/
+.tox/
+.mypy_cache/
+
+# Jupyter
+.ipynb_checkpoints
+
+# Chroma store and processed data
+data/chroma_store/
+data/chroma_store/chroma.sqlite3
+data/processed/
+data/raw_html/
+data/raw_pdfs/
+
+# Secrets
+*.pem
+*.key
+*.crt
+
+# Misc
+npm-debug.log*
+yarn-error.log*

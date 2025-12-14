@@ -1,0 +1,17 @@
+--- Testing OpenRouter Models ---
+
+Testing Model: meta-llama/llama-3-8b-instruct:free...
+❌ FAILED: meta-llama/llama-3-8b-instruct:free (Status: 404)
+Error: {"error":{"message":"No endpoints found for meta-llama/llama-3-8b-instruct:free.","code":404},"user_id":"user_356zElzE64VsmttzITou9vBWxGQ"}
+
+Testing Model: mistralai/mistral-7b-instruct:free...
+✅ SUCCESS: mistralai/mistral-7b-instruct:free
+Response:  <s> 
+
+Testing Model: google/gemma-2-9b-it:free...
+❌ FAILED: google/gemma-2-9b-it:free (Status: 404)
+Error: {"error":{"message":"No endpoints found for google/gemma-2-9b-it:free.","code":404},"user_id":"user_356zElzE64VsmttzITou9vBWxGQ"}
+
+Testing Model: microsoft/phi-3-mini-128k-instruct:free...
+❌ FAILED: microsoft/phi-3-mini-128k-instruct:free (Status: 404)
+Error: {"error":{"message":"No endpoints found for microsoft/phi-3-mini-128k-instruct:free.","code":404},"user_id":"user_356zElzE64VsmttzITou9vBWxGQ"}
